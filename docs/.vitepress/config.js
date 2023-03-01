@@ -1,7 +1,7 @@
 import { getSidebar } from "vitepress-plugin-auto-sidebar";
 
 export default {
-  base: "/vorp_documentation/",
+  base: "/VORP_Documentation/",
   title: "VORPCore",
   description: "VORPCore Documentation",
   lastUpdated: true,
