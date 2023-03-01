@@ -1,14 +1,15 @@
-# ***VORP Utils***
+# VORP Utils
 
 > A Vorp Utility Script that allows you to easily interact with RedM Natives and VorpCore in a Vorp standardized way. The goal of this is to make it easier to use some of the more complicated, or heavily lined natives.
 
-## ***How to use***
+## API Docs
 
 ### Blips
 
 You can leverage Vorps built in function for map blips.
 
 #### Create a Blip
+<Badge type="warning" text="Client Side Only" /> 
 
 Create a marker (blip) on the players map
 
@@ -37,6 +38,8 @@ end)
 ```
 
 #### Get Raw Blip
+<Badge type="warning" text="Client Side Only" /> 
+
 If you want to use any natives that are not yet included, you can utilize the raw blip.
 
 ```lua
@@ -59,6 +62,7 @@ end)
 ```
 
 #### Delete a Blip
+<Badge type="warning" text="Client Side Only" /> 
 
 Delete a marker (blip) on the players map
 
@@ -80,6 +84,7 @@ end)
 ```
 
 #### Add Radius to Blip
+<Badge type="warning" text="Client Side Only" /> 
 
 Create a Radius blip
 
@@ -107,11 +112,13 @@ Citizen.CreateThread(function()
 end)
 ```
 
-# Prompts
+### Prompts
 
 You can leverage Vorps built in function for easy in-game prompts.
 
 #### Setup a Prompt Group
+<Badge type="warning" text="Client Side Only" /> 
+
 This sets up the Prompt Group, which will allow you to attach future prompts to this group so that they can be displayed. This is required.
 
 **Example Usage:**
@@ -130,6 +137,8 @@ end)
 ```
 
 #### Register Prompt
+<Badge type="warning" text="Client Side Only" /> 
+
 Once you have the Prompt Group setup, you can now register a prompt to display within the group.
 
 |Parameter| Description|
@@ -176,6 +185,8 @@ end)
 ```
 
 #### Display Prompt Group
+<Badge type="warning" text="Client Side Only" /> 
+
 Now that you have a Group setup and a registered Prompt, you can now display the group!
 
 |Parameter| Description|
@@ -208,6 +219,8 @@ end)
 ```
 
 #### Handle Prompt Completion Events
+<Badge type="warning" text="Client Side Only" /> 
+
 You can trigger code when a prompt has a completion event triggered (Example: clicked, held, etc)
 
 |Parameter| Description|
@@ -247,6 +260,8 @@ end)
 ```
 
 #### Handle Prompt Failure Events
+<Badge type="warning" text="Client Side Only" /> 
+
 You can trigger code when a prompt has a failure event triggered (Example: timed, mashed)
 
 
@@ -291,6 +306,8 @@ end)
 ```
 
 #### Delete Prompt
+<Badge type="warning" text="Client Side Only" /> 
+
 Remove a prompt completely
 
 `firstprompt:DeletePrompt()` 
@@ -325,6 +342,8 @@ end)
 ```
 
 #### Toggle Prompt Visibility
+<Badge type="warning" text="Client Side Only" /> 
+
 Make a prompt visible or hidden
 
 |Parameter| Description|
@@ -367,6 +386,8 @@ end)
 You can leverage Vorps built in function for easy spawn and manipulate in-game pedestrian entities.
 
 #### Create Ped
+<Badge type="warning" text="Client Side Only" /> 
+
 This will spawn a pedestrian in your game world
 
 |Parameter| Description|
@@ -411,6 +432,8 @@ end)
 ```
 
 #### Freeze Ped
+<Badge type="warning" text="Client Side Only" /> 
+
 Freeze a ped where they stand
 
 | Parameter| Description|
@@ -442,6 +465,8 @@ end)
 ```
 
 #### Invincible Ped
+<Badge type="warning" text="Client Side Only" /> 
+
 Make a ped Invincible
 
 | Parameter| Description|
@@ -473,6 +498,8 @@ end)
 ```
 
 #### Ped CanBeDamaged
+<Badge type="warning" text="Client Side Only" /> 
+
 Make a ped not take damage
 
 | Parameter| Description|
@@ -504,6 +531,8 @@ end)
 ```
 
 #### Set Ped Heading
+<Badge type="warning" text="Client Side Only" /> 
+
 change the directon a ped is facing
 
 | Parameter| Description|
@@ -535,6 +564,8 @@ end)
 ```
 
 #### Set Ped Seeing Range
+<Badge type="warning" text="Client Side Only" /> 
+
 Change how far the ped can see
 
 | Parameter| Description|
@@ -566,6 +597,8 @@ end)
 ```
 
 #### Set Ped Hearing Range
+<Badge type="warning" text="Client Side Only" /> 
+
 Change how far the ped can hear
 
 | Parameter| Description|
@@ -597,6 +630,8 @@ end)
 ```
 
 #### Set Ped Can Mount
+<Badge type="warning" text="Client Side Only" /> 
+
 Change if a ped can mount something.
 
 | Parameter| Description|
@@ -627,7 +662,175 @@ Citizen.CreateThread(function()
 end)
 ```
 
+#### Add Ped to Group
+<Badge type="warning" text="Client Side Only" /> 
+
+Add ped to a group
+
+| Parameter| Description|
+|--|--|
+| group | index of the group to add to |
+
+`ped:AddPedToGroup(group)` 
+  
+  Example Usage:
+```lua
+
+-- client side only
+
+local VORPutils = {}
+
+TriggerEvent("getUtils", function(utils)
+    VORPutils = utils
+end)
+
+Citizen.CreateThread(function()
+    local coords = {
+        z = 118.38395690917968, y = 802.531982421875, x = -279.46728515625
+    }
+
+    local ped = VORPutils.Peds:Create('s_m_m_valdeputy_01', coords.x, coords.y, coords.z, 0, 'world', false)
+
+    ped:AddPedToGroup(GetPedGroupIndex(PlayerPedId()))
+
+end)
+```
+
+#### Clear a ped task
+<Badge type="warning" text="Client Side Only" /> 
+
+Clear any active tasks
+
+`ped:ClearTasks()` 
+  
+  Example Usage:
+```lua
+
+-- client side only
+
+local VORPutils = {}
+
+TriggerEvent("getUtils", function(utils)
+    VORPutils = utils
+end)
+
+Citizen.CreateThread(function()
+    local coords = {
+        z = 118.38395690917968, y = 802.531982421875, x = -279.46728515625
+    }
+
+    local ped = VORPutils.Peds:Create('s_m_m_valdeputy_01', coords.x, coords.y, coords.z, 0, 'world', false)
+
+    ped:ClearTasks()
+
+end)
+```
+
+#### Get Task Status
+<Badge type="warning" text="Client Side Only" /> 
+
+Check the status of a ped task
+
+`ped:GetTaskStatus(taskid)` 
+  
+  Example Usage:
+```lua
+
+-- client side only
+
+local VORPutils = {}
+
+TriggerEvent("getUtils", function(utils)
+    VORPutils = utils
+end)
+
+Citizen.CreateThread(function()
+    local coords = {
+        z = 118.38395690917968, y = 802.531982421875, x = -279.46728515625
+    }
+
+    local ped = VORPutils.Peds:Create('s_m_m_valdeputy_01', coords.x, coords.y, coords.z, 0, 'world', false)
+
+    while (ped:GetTaskStatus(0x4924437d) ~= 8) do
+        Wait(1000)
+    end
+
+    print("Ped task done!")
+
+end)
+```
+
+#### Follow to offset
+<Badge type="warning" text="Client Side Only" /> 
+
+Add ped to a group
+
+| Parameter| Description|
+|--|--|
+| pedid | id of ped to follow |
+
+`ped:FollowToOffsetOfEntity(pedid)` 
+  
+  Example Usage:
+```lua
+
+-- client side only
+
+local VORPutils = {}
+
+TriggerEvent("getUtils", function(utils)
+    VORPutils = utils
+end)
+
+Citizen.CreateThread(function()
+    local coords = {
+        z = 118.38395690917968, y = 802.531982421875, x = -279.46728515625
+    }
+
+    local ped = VORPutils.Peds:Create('s_m_m_valdeputy_01', coords.x, coords.y, coords.z, 0, 'world', false)
+
+    ped:FollowToOffsetOfEntity(PlayerPedId(), 0.0, -1.5, 0.0, 1.0, -1, 10, 1, 1)
+
+end)
+```
+
+#### Follow to offset
+<Badge type="warning" text="Client Side Only" /> 
+
+Add ped to a group
+
+| Parameter| Description|
+|--|--|
+| skinhash | hash of skin meta cloth |
+
+`ped:ChangeOutfit(skinhash)` 
+  
+  Example Usage:
+```lua
+
+-- client side only
+
+local VORPutils = {}
+
+TriggerEvent("getUtils", function(utils)
+    VORPutils = utils
+end)
+
+Citizen.CreateThread(function()
+    local coords = {
+        z = 118.38395690917968, y = 802.531982421875, x = -279.46728515625
+    }
+
+    local ped = VORPutils.Peds:Create('A_C_DogBluetickCoonhound_01', coords.x, coords.y, coords.z, 0, 'world', false)
+
+    ped:ChangeOutfit(0xDC567AF8)
+
+end)
+```
+
 #### Set Ped Blip
+<Badge type="warning" text="Client Side Only" /> 
+
 Set a blip on ped that follows
 
 | Parameter| Description|
@@ -660,6 +863,8 @@ end)
 ```
 
 #### Give Ped Weapon
+<Badge type="warning" text="Client Side Only" /> 
+
 Give a ped a weapon (they will only use it if they are set to be agro)
 
 | Parameter| Description|
@@ -698,6 +903,8 @@ end)
 ```
 
 #### Set Ped Flee Attribute
+<Badge type="warning" text="Client Side Only" /> 
+
 Enable or disable pedestrian flee attributes
 
 | Parameter| Description|
@@ -729,6 +936,8 @@ end)
 ```
 
 #### Set Ped Combat Attributes
+<Badge type="warning" text="Client Side Only" /> 
+
 Enable or disable pedestrian combat attributes
 
 | Parameter| Description|
@@ -764,6 +973,8 @@ end)
 ```
 
 #### Set Ped Combat Style
+<Badge type="warning" text="Client Side Only" /> 
+
 Set the pedestrians combat style
 
 | Parameter| Description|
@@ -795,6 +1006,8 @@ end)
 ```
 
 #### Clear Ped Combat Style
+<Badge type="warning" text="Client Side Only" /> 
+
 Clear the pedestrians combat style
 
 `ped:ClearCombatStyle()`
@@ -821,6 +1034,8 @@ end)
 ```
 
 #### Attack Target
+<Badge type="warning" text="Client Side Only" /> 
+
 Set a target for the ped to attack
 
 | Parameter| Description|
@@ -852,6 +1067,8 @@ end)
 ```
 
 #### Remove Ped
+<Badge type="warning" text="Client Side Only" /> 
+
 Remove a Ped
 
 `ped:Remove()`
@@ -878,6 +1095,8 @@ end)
 ```
 
 #### Get Ped
+<Badge type="warning" text="Client Side Only" /> 
+
 If there are natives this util does not yet support, you can use this to get the ped to utilize against any native.
 
 `ped:GetPed()`
@@ -910,6 +1129,8 @@ end)
 You can leverage Vorps built in function for easy spawn and manipulate in-game Object entities.
 
 #### Create Object
+<Badge type="warning" text="Client Side Only" /> 
+
 This will spawn an object in your game world
 
 |Parameter| Description|
@@ -945,6 +1166,8 @@ end)
 ```
 
 #### Pickup Light
+<Badge type="warning" text="Client Side Only" /> 
+
 Add a light to the object
 
 |Parameter| Description|
@@ -976,6 +1199,8 @@ end)
 ```
 
 #### Freeze
+<Badge type="warning" text="Client Side Only" /> 
+
 Freeze Object
 
 |Parameter| Description|
@@ -1007,6 +1232,8 @@ end)
 ```
 
 #### Set Heading
+<Badge type="warning" text="Client Side Only" /> 
+
 Set the heading of an object
 
 |Parameter| Description|
@@ -1038,6 +1265,8 @@ end)
 ```
 
 #### Place On Ground
+<Badge type="warning" text="Client Side Only" /> 
+
 place the object on the groun properly
 
 |Parameter| Description|
@@ -1069,6 +1298,8 @@ end)
 ```
 
 #### Set As Mission
+<Badge type="warning" text="Client Side Only" /> 
+
 The engine will keep object when players leave the area
 
 |Parameter| Description|
@@ -1100,6 +1331,8 @@ end)
 ```
 
 #### Set As No Longer Needed
+<Badge type="warning" text="Client Side Only" /> 
+
 The engine will remove when players leave the area
 
 
@@ -1128,6 +1361,8 @@ end)
 ```
 
 #### Invincible
+<Badge type="warning" text="Client Side Only" /> 
+
 Set object as invincible
 
 |Parameter| Description|
@@ -1159,6 +1394,8 @@ end)
 ```
 
 #### Horse Jumpable
+<Badge type="warning" text="Client Side Only" /> 
+
 Sets object as not jumpable by horse.
 
 |Parameter| Description|
@@ -1190,6 +1427,8 @@ end)
 ```
 
 #### Remove
+<Badge type="warning" text="Client Side Only" /> 
+
 Remove Object
 
 `obj:Remove()` 
@@ -1219,6 +1458,8 @@ end)
 ```
 
 #### Get Object
+<Badge type="warning" text="Client Side Only" /> 
+
 Remove Object
 
 `obj:GetObj()` 
@@ -1273,8 +1514,11 @@ end
 ```
 
 ### Files
+An easy to use file manipulation system.
 
 #### Open
+<Badge type="tip" text="Server Side Only" />
+
 Open a file from a given file path
 |Parameter| Description|
 |--|--|
@@ -1300,6 +1544,8 @@ end)
 ```
 
 #### Read
+<Badge type="tip" text="Server Side Only" />
+
 Read the file that you have openned.
 
 |Parameter| Description|
@@ -1326,6 +1572,8 @@ end)
 ```
 
 #### Save
+<Badge type="tip" text="Server Side Only" />
+
 Save data to the file that you have opened.
 
 |Parameter| Description|
@@ -1357,6 +1605,8 @@ end)
 ```
 
 #### Update
+<Badge type="tip" text="Server Side Only" />
+
 Instead of needing to open and save a file, you can update data directly to the file.
 
 |Parameter| Description|
@@ -1384,9 +1634,13 @@ end)
 ```
 
 #### Lazy Functions
+<Badge type="tip" text="Server Side Only" />
+
 There is a way to use these functions without needing to call the Open() function, this can be used for quick usage or prototyping, but is non-optimal and slower than the above. 
 
 ##### Load File
+<Badge type="tip" text="Server Side Only" />
+
 Read the file that you have openned.
 
 |Parameter| Description|
@@ -1414,6 +1668,8 @@ end)
 ```
 
 ##### Save File
+<Badge type="tip" text="Server Side Only" />
+
 Save the file that you have openned.
 
 |Parameter| Description|
@@ -1442,6 +1698,8 @@ end)
 ```
 
 ##### Update File
+<Badge type="tip" text="Server Side Only" />
+
 Update the file that you have openned.
 
 |Parameter| Description|
@@ -1597,6 +1855,8 @@ This allows for things like like bank walls being blown out, railroad bridge blo
 *Note that they are not networked and you'll need to sync clients manually.*
 
 #### Get Destruction Object
+<Badge type="warning" text="Client Side Only" /> 
+
 Get nearby RawFire map Objects
 
 |Parameter| Description|
@@ -1624,6 +1884,8 @@ end)
 ```
 
 #### Check if the Destruction Object Exists
+<Badge type="warning" text="Client Side Only" /> 
+
 Check if the RayFire Destruction Object exists.
 
 `object:DoesExist()`
@@ -1646,6 +1908,8 @@ end)
 ```
 
 #### Reset State
+<Badge type="warning" text="Client Side Only" /> 
+
 Reset the RayFire Destruction Objects state.
 
 `object:resetState()`
@@ -1668,6 +1932,8 @@ end)
 ```
 
 #### Reset State
+<Badge type="warning" text="Client Side Only" /> 
+
 Reset the RayFire Destruction Objects state.
 
 |Parameter| Description|
@@ -1701,6 +1967,8 @@ end)
 Render is an API to help with in-world and on screen drawing. (Text, Sprites, etc.)
 
 #### WorldToScreen
+<Badge type="warning" text="Client Side Only" /> 
+
 Converts an in-world coordinate to a screen position
 
 |Parameter| Description|
@@ -1730,6 +1998,8 @@ end)
 ```
 
 #### WorldToHud
+<Badge type="warning" text="Client Side Only" /> 
+
 Converts in-world coordinate to a hud position (bounded to screen)
 
 |Parameter| Description|
@@ -1759,6 +2029,8 @@ end)
 ```
 
 #### DrawSprite
+<Badge type="warning" text="Client Side Only" /> 
+
 Draw Sprites on screen
 
 |Parameter| Description|
@@ -1795,6 +2067,8 @@ end)
 ```
 
 #### Draw Rectangle
+<Badge type="warning" text="Client Side Only" /> 
+
 Draw a rectangle on screen
 
 |Parameter| Description|
@@ -1828,6 +2102,8 @@ end)
 ```
 
 #### Draw Marker
+<Badge type="warning" text="Client Side Only" /> 
+
 Draw a Marker in-world
 
 |Parameter| Description|
@@ -1865,6 +2141,8 @@ end)
 ```
 
 #### Draw Text
+<Badge type="warning" text="Client Side Only" /> 
+
 Draw a Text on screen
 
 |Parameter| Description|
@@ -1875,7 +2153,7 @@ Draw a Text on screen
 | scale | scale of the text |
 | shadow | if shadow is enabled (true/false) |
 
-`VORPutils.Render:DrawMarker(pos, text, color, scale, shadow)`
+`VORPutils.Render:DrawText(pos, text, color, scale, shadow)`
 
 Example Usage:
 ```lua
@@ -1903,6 +2181,7 @@ end)
 Vorp_Utils has a built-in network and entity event watcher that can be utilized by other scripts easily.
 
 #### Register Event Listener
+<Badge type="warning" text="Client Side Only" /> 
 
 Register a callback that will be triggered whenever an in-game client event triggers.
 
@@ -1911,7 +2190,7 @@ Register a callback that will be triggered whenever an in-game client event trig
 | eventname | name of the event to watch/listen to |
 | callback | fucntion to be triggered when an event is triggered |
 
-`VORPutils.Render:DrawMarker(pos, text, color, scale, shadow)`
+`VORPutils.Events:RegisterEventListener(eventname, callback)`
 
 Example Usage:
 ```lua
@@ -1923,13 +2202,14 @@ TriggerEvent("getUtils", function(utils)
 end)
 
 Citizen.CreateThread(function()
-    UtilAPI.Events:RegisterEventListener('EVENT_PICKUP_CARRIABLE', function(args)
+    VORPutils.Events:RegisterEventListener('EVENT_PICKUP_CARRIABLE', function(args)
         print("EVENT TRIGGERED: EVENT_PICKUP_CARRIABLE", args[1], args[2])
     end)
 end)
 ```
 
 #### Remove Event Listener
+<Badge type="warning" text="Client Side Only" /> 
 
 Removes an event from the listener queue, listener will no longer listen once removed. This frees up in-game memory andis best practice if using listeners in a dynamic, or temporary way.
 
@@ -1937,7 +2217,7 @@ Removes an event from the listener queue, listener will no longer listen once re
 |--|--|
 | listener | object returns from RegisterEventListener |
 
-`VORPutils.Render:RenoveEventListener(listener)`
+`VORPutils.Events:RenoveEventListener(listener)`
 
 Example Usage:
 ```lua
@@ -1949,18 +2229,19 @@ TriggerEvent("getUtils", function(utils)
 end)
 
 Citizen.CreateThread(function()
-    local listener = UtilAPI.Events:RegisterEventListener('EVENT_PICKUP_CARRIABLE', function(args)
+    local listener = VORPutils.Events:RegisterEventListener('EVENT_PICKUP_CARRIABLE', function(args)
         print("EVENT TRIGGERED: EVENT_PICKUP_CARRIABLE", args[1], args[2])
     end)
 
 
     Wait(40000)
 
-    UtilAPI.Events:RenoveEventListener(listener)
+    VORPutils.Events:RenoveEventListener(listener)
 end)
 ```
 
 #### DevMode
+<Badge type="warning" text="Client Side Only" /> 
 
 This provides the ability to print every in-game event for development purpose.
 
@@ -1969,7 +2250,7 @@ This provides the ability to print every in-game event for development purpose.
 | state | object returns from RegisterEventListener |
 | type | (optional, will default to all) the type of event to listen too (entities, network, or all) |
 
-`VORPutils.Render:RenoveEventListener(listener)`
+`VORPutils.Events:DevMode(listener)`
 
 Example Usage:
 ```lua
@@ -1981,7 +2262,7 @@ TriggerEvent("getUtils", function(utils)
 end)
 
 Citizen.CreateThread(function()
-    UtilAPI.Events:DevMode(true, 'entities')
-    --  UtilAPI.Events:DevMode(true, 'network')
+    VORPutils.Events:DevMode(true, 'entities')
+    --  VORPutils.Events:DevMode(true, 'network')
 end)
 ```

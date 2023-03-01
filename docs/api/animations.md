@@ -3,24 +3,21 @@
 ## What is this script?
 An animation tool for other scripts to utilize. The goal of this script is to make interacting with animations much easier for other developers. This Script allows other script creators to leverage pre-made animations and animation combos with ease of use in mind.
 
-## How to install
-* Download this repo
-* Copy and paste `vorp_animations` folder to `resources/vorp_animations`
-* Add `ensure vorp_animations` to your `server.cfg` file
-* Now you are ready to get coding!
-
 ## Screen Shot
 ![image](https://user-images.githubusercontent.com/10902965/184693638-fb6aab24-721b-4c29-a69b-57daf62b0bda.png)
 
-## Documentation
+## API Docs
 
 ### How to initialize the animation API
+<Badge type="warning" text="Client Side Only" /> 
 
 ```lua
 local Animations = exports.vorp_animations.initiate()
 ```
 
 ### How to play an animation
+<Badge type="warning" text="Client Side Only" /> 
+
 `Animations.playAnimation(animationname, length)`
 
 Example:
@@ -29,6 +26,8 @@ Animations.playAnimation('campfire', 2000)
 ```
 
 ### How to add a custom prop to an animation
+<Badge type="warning" text="Client Side Only" />
+
 `setCustomProp(propobject)`
 __This must be used before playing an animation to take effect__
 
@@ -62,6 +61,8 @@ Animations.setCustomProp({
 ```
 
 ### How to start an animation with no end
+<Badge type="warning" text="Client Side Only" /> 
+
 `Animations.startAnimation(animationname)`
 
 Example:
@@ -70,6 +71,8 @@ Animations.startAnimation('campfire')
 ```
 
 ### How to end an animation
+<Badge type="warning" text="Client Side Only" /> 
+
 `Animations.playAnimation(animationname)`
 
 Example:

@@ -1,18 +1,95 @@
 :root {
-    --vp-c-brand: #ED9954;
-    --vp-c-brand-light: #FFC77D;
-    --vp-c-brand-lighter: #ED9954;
-    --vp-c-brand-dark: #bb7942;
-    --vp-c-brand-darker: #915e35;
-  
-    --vp-c-sponsor: #ed5454;
+  --vp-c-brand: #ed9954;
+  --vp-c-brand-light: #ffc77d;
+  --vp-c-brand-lighter: #ffc77d;
+  --vp-c-brand-dark: #bb7942;
+  --vp-c-brand-darker: #915e35;
 
-    /* Typography */
-    --vp-font-family-base: "Space Grotesk", "Inter var experimental", "Inter var",
+  --vp-c-sponsor: #ed5454;
+
+
+  --vp-badge-warning-border: #ed9954;
+  --vp-badge-warning-text: #ed9954;
+
+  --vp-badge-tip-border: #519e4a;
+  --vp-badge-tip-text: #519e4a;
+
+  --vp-custom-block-warning-border: #ed9954;
+  --vp-custom-block-warning-text: #ed9954;
+  
+
+  /* Typography */
+  --vp-font-family-base: "Space Grotesk", "Inter var experimental", "Inter var",
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
     Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
-    /* Code Snippet font */
-    --vp-font-family-mono: "Space Mono", Menlo, Monaco, Consolas, "Courier New",
+  /* Code Snippet font */
+  --vp-font-family-mono: "Space Mono", Menlo, Monaco, Consolas, "Courier New",
     monospace;
-  }
+}
+
+.VPButton.brand {
+  background: linear-gradient(to right, #ed9954, #ffde92);
+  color: #fff !important;
+}
+
+.VPButton.brand:hover {
+  background: linear-gradient(to right, #a76b3a, #a79160);
+  color: #fff !important;
+}
+
+.clip {
+  background: -webkit-linear-gradient(left, #ed9954, #ffde92) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.header-anchor {
+    background: -webkit-linear-gradient(left, #ed9954, #ffde92) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.custom-block.warning {
+    position: relative;
+    border: none;
+
+    color: #ed9954;
+}
+
+.custom-block.warning::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px; 
+    padding: 1px; 
+    background:linear-gradient(to right, #ed9954, #ffde92); 
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+}
+
+.pager-link:hover {
+    position: relative;
+    border: none !important;
+}
+
+.pager-link:hover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px; 
+    padding: 1px; 
+    background:linear-gradient(to right, #ed9954, #ffde92); 
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude; 
+}
+
+.pager-link {
+    transition: all 0.25s;
+}

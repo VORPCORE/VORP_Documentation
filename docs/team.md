@@ -84,31 +84,31 @@ const developers = [
 ]
 const staff = [
     {
-        avatar: 'https://www.howtogeek.com/wp-content/uploads/2021/07/Discord-Logo-Lede.png?height=200p&trim=2,2,2,2&crop=1:1',
+        avatar: 'https://cdn.discordapp.com/avatars/263296570588397579/258a8647af87e59ff4992b8c48b92162?size=1024',
         name: 'Hobbs',
         title: 'Moderator',
         links: []
     },
     {
-        avatar: 'https://www.howtogeek.com/wp-content/uploads/2021/07/Discord-Logo-Lede.png?height=200p&trim=2,2,2,2&crop=1:1',
+        avatar: 'https://cdn.discordapp.com/avatars/603391306672111626/fcc52165597822da0047d199b5980f17?size=1024',
         name: 'NoTrHaN',
         title: 'Moderator',
         links: []
     },
     {
-        avatar: 'https://www.howtogeek.com/wp-content/uploads/2021/07/Discord-Logo-Lede.png?height=200p&trim=2,2,2,2&crop=1:1',
+        avatar: 'https://cdn.discordapp.com/avatars/173378385043652608/d725921a367afc8a21e1f2568b20953d?size=1024',
         name: 'Marish',
         title: 'Support',
         links: []
     },
     {
-        avatar: 'https://www.howtogeek.com/wp-content/uploads/2021/07/Discord-Logo-Lede.png?height=200p&trim=2,2,2,2&crop=1:1',
+        avatar: 'https://cdn.discordapp.com/avatars/389590964030668812/3ec3d25745311a98da2ee713365ac905?size=1024',
         name: 'Jannings',
         title: 'Support',
         links: []
     },
     {
-        avatar: 'https://www.howtogeek.com/wp-content/uploads/2021/07/Discord-Logo-Lede.png?height=200p&trim=2,2,2,2&crop=1:1',
+        avatar: 'https://cdn.discordapp.com/avatars/837186684458106903/a_502141984e75916e0a49026d38706c40?size=1024',
         name: 'BigSmoke',
         title: 'Support',
         links: []
