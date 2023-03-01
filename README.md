@@ -10,7 +10,6 @@
 6. Run `npm run docs:dev`
 7. You should now be able to see a local version of the site running on `http://localhost:5173/vorp-api-docs/`
 
-
 ## File Structure
   docs -> vitepress (App settings)
 

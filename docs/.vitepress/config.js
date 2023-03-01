@@ -6,6 +6,9 @@ export default {
   description: "VORPCore Documentation",
   lastUpdated: true,
   cleanUrls: true,
+  head: [
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/logo.png"}],
+  ],
   themeConfig: {
     logo: "/logo.png",
     editLink: {
