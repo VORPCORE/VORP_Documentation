@@ -33,10 +33,9 @@ head:
 
 ### Download the following
 
+- [`MariaDB`](https://mariadb.org/download) For **connecting** to the database. _(Version 10.11.2 Recommended)_ <Badge type="warning" text="MySQL is not supported" />
 
-- [`MariaDB`](https://mariadb.org/download) For **connecting** to the database <Badge type="warning" text="MySQL is not supported" />
-
-- [`HEIDI SQL`](https://www.heidisql.com/download.php) to **manage** the database
+- `HEIDI SQL` to **manage** the database _(This is included in the MariaDB download)_
 
 ## **HOSTING YOUR SERVER**
 :::warning
@@ -52,7 +51,8 @@ You have many options when hosting:
 ## INSTALLATION
 
 ### Download Premade
-- [`Download`](https://github.com/VORPCORE/vorp_pre-made) the **premade server**
+- [`Download`](https://github.com/VORPCORE/vorp_pre-made) the **premade server** OR [`Download`](https://github.com/VORPCORE/VORP_txAdmin) the **txadmin recipe**
+- After downloading, follow the instuctions in the given repo to install the server, then continue bellow.
 
 ### Configuration & Permissions
 
@@ -72,7 +72,7 @@ Edit the **server.cfg** found at 📁``server/server.cfg``
 ---
 
 
-- Install MariadDB for your databse or `xampp`
+- Install MariadDB for your databse
 - Install and run   **HeidiSQL** the SQL file  `MariaDB.sql` found in the directory of the [`premade`](https://github.com/VORPCORE/vorp_pre-made) server
 - Create where it says **New** any name you want
 
@@ -96,7 +96,6 @@ Edit the **server.cfg** found at 📁``server/server.cfg``
 
 
 - Done! Your server is installed
-
 
 
 :::warning
