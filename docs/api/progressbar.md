@@ -1,20 +1,18 @@
-# ***VORP ProgressBar***
+# ProgressBar
 
 > A `client` side UI progressbar that allows you to display brogress bars/circles within your scripts!
 
-## **How to use**
----
-
-Can only be used from `client side `
+## API Docs
 
 ### Initiate the progress bar globally
----
+<Badge type="warning" text="Client Side Only" /> 
+
 ```lua
     progressbar = exports.vorp_progressbar:initiate()
 ```
  
 ### Start your progress UI
----
+<Badge type="warning" text="Client Side Only" /> 
 
 ```lua
     progressbar.start(message, time, callback, theme)

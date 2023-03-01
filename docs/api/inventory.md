@@ -1,10 +1,10 @@
-#### ***VORP inventory API***
-
-## API
-
+# VORP inventory
 vorp Inventory provide a custom API that allow you to interact with items as wall as creating custom inventories.
 
-### ***Installation***
+## API Docs
+
+### Installation
+<Badge type="tip" text="Server Side Only" />
 
 * inventory export to be used at the top of the `server` side
 
@@ -16,10 +16,12 @@ VORPInv = exports.vorp_inventory:vorp_inventoryApi()
 
 ```
 
-### ***Item API***
+### Item API
 You can use the API `server` side to give, delete, register item utility, get quantities and even ask if the player can carry the item.
 
 #### Add Item
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 -- give an item
 VorpInv.addItem(source, itemName, qty, metadata)
@@ -34,6 +36,8 @@ VorpInv.addItem(source, itemName, qty, metadata)
 | metadata         | Table  | An object containing all custom data of item to add | False      |
 
 #### Sub Item
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 --remove an item
 VorpInv.subItem(source, itemName, qty, metadata)
@@ -47,6 +51,8 @@ VorpInv.subItem(source, itemName, qty, metadata)
 | metadata         | Table  | An object containing all custom data of item to remove | False      |
 
 #### Get Item
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 --get item player have in inventory
 local item = VorpInv.getItem(source, itemName, metadata)
@@ -63,6 +69,8 @@ local item = VorpInv.getItem(source, itemName, metadata)
 | Return   | Table (Item) or nil | An object containing all item information              |
 
 #### Get Item Count
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 -- get the count of an item player has in inventory
 local itemCount = VorpInv.getItemCount(source, itemName, metadata)
@@ -79,6 +87,8 @@ local itemCount = VorpInv.getItemCount(source, itemName, metadata)
 | Return   | Number | The total count of selected item in player inventory |
 
 #### Can Carry Item
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 -- checks item limit
 local canCarry = VorpInv.canCarryItem(source, itemName, amount)
@@ -95,6 +105,8 @@ local canCarry = VorpInv.canCarryItem(source, itemName, amount)
 | Return   | Boolean | True if there is enough space, False if not. |
 
 #### Can Carry Items
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 -- checks inventory limit
 local canCarry = VorpInv.CanCarryItems(source, amount)
@@ -110,6 +122,8 @@ local canCarry = VorpInv.CanCarryItems(source, amount)
 | Return | Boolean | True if there is enough space, False if not. |
 
 #### Register Usable Item
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 local itemName = "bread"
 VorpInv.RegisterUsableItem(itemName, function(data)
@@ -135,6 +149,8 @@ end)
 
 
 #### Get DB Item
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 local item = VorpInv.getDBItem(source, itemName)
 ```
@@ -153,6 +169,8 @@ local item = VorpInv.getDBItem(source, itemName)
 You can use the API to add, delete and get weapons, ad, remove or get weapon bullets and components and even check if the player can carry the weapons.
 
 #### Add Weapon
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.createWeapon(source, weaponName, ammo, comp)
 ```
@@ -165,6 +183,8 @@ VorpInv.createWeapon(source, weaponName, ammo, comp)
 | comp       | Table  | An array containing start comp | False      |
 
 #### Sub Weapon
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 -- remove weapon
 VorpInv.subWeapon(source, weaponId)
@@ -176,6 +196,8 @@ VorpInv.subWeapon(source, weaponId)
 | weaponId  | Number | The id of the weapon to remove DB | True       |
 
 #### Give Weapon
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 --give weapon from one player to another
 VorpInv.giveWeapon(source, weaponId, target)
@@ -188,6 +210,8 @@ VorpInv.giveWeapon(source, weaponId, target)
 | target    | Number | The target player id in game   | True       |
 
 #### Add Bullets
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.addBullets(source, weaponId, type, qty)
 ```
@@ -200,6 +224,8 @@ VorpInv.addBullets(source, weaponId, type, qty)
 | qty       | Number | The amount of bullets to add | True       |
 
 #### Sub Bullets
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.subBullets(source, weaponId, type, qty)
 ```
@@ -212,6 +238,8 @@ VorpInv.subBullets(source, weaponId, type, qty)
 | qty       | Number | The amount of bullets to remove | True       |
 
 #### Get Weapon Bullets
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 local WeaponBullets = VorpInv.getWeaponBullets(source, weaponId)
 ```
@@ -226,6 +254,8 @@ local WeaponBullets = VorpInv.getWeaponBullets(source, weaponId)
 | Return | Table or nil | An Array containing all the loaded bullets in the weapon |
 
 #### Get Weapon Components
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 local weaponComps = VorpInv.getWeaponComponents(source, weaponId)
 ```
@@ -240,6 +270,8 @@ local weaponComps = VorpInv.getWeaponComponents(source, weaponId)
 | Return | Table or nil | An Array containing all the loaded components on the weapon |
 
 #### Get Weapons
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 local weapons = VorpInv.getUserWeapons(source)
 ```
@@ -253,6 +285,8 @@ local weapons = VorpInv.getUserWeapons(source)
 | Return | Table or nil | An Array containing all the weapon of the player |
 
 #### Get Weapon
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 local weapon = VorpInv.getUserWeapon(source, weaponId)
 ```
@@ -267,6 +301,8 @@ local weapon = VorpInv.getUserWeapon(source, weaponId)
 | Return | Table (Weapon) or nil | An Object containing all weapon information |
 
 #### Can Carry Weapons
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.canCarryWeapons(source, amount, function(cb) --can carry weapons
     local canCarry = cb
@@ -289,6 +325,8 @@ end)
 You can use the API to open or close the player Inventory, and register custom private or shared inventories.
 
 #### Get Inventory
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 local inventory = VorpInv.getUserInventory(source)
 print(inventory)
@@ -303,6 +341,8 @@ print(inventory)
 | Return | Table (Item[]) or nil | An Array containing all items in player Inventory |
 
 #### Open Player Inventory
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 -- opens source inventory to source or the invid (secondary inv) to source
 VorpInv.OpenInv(source,invID) 
@@ -315,6 +355,8 @@ VorpInv.OpenInv(source,invID)
 | invID     | Number | The secondary inventory ID  | false  |
 
 #### Close Player Inventory
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 -- close source inv or close (secondary inv) with its ID
 VorpInv.CloseInv(source,invID)
@@ -326,6 +368,8 @@ VorpInv.CloseInv(source,invID)
 | invID     | Number | The secondary inventory ID  | false  |
 
 #### Register Inventory
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.registerInventory(id, name, limit, acceptWeapons, shared,stack, listonly, usepermissions,useBlackList, ListWeapons)
 ```
@@ -347,6 +391,8 @@ VorpInv.registerInventory(id, name, limit, acceptWeapons, shared,stack, listonly
 
 
 #### Remove Inventory
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.removeInventory(id)
 ```
@@ -357,6 +403,8 @@ VorpInv.removeInventory(id)
 
 
 #### Set Custom Inventory Item Limit
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.setInventoryItemLimit(id, itemName, limit)
 ```
@@ -368,6 +416,8 @@ VorpInv.setInventoryItemLimit(id, itemName, limit)
 | limit     | Number | The limit for this item in the custom inventory. Set 0 to deny this item in this inventory | True       |
 
 #### Set Custom Inventory Weapon Limit
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VorpInv.setInventoryWeaponLimit(id, weaponName, limit)
 ```
@@ -379,17 +429,23 @@ VorpInv.setInventoryWeaponLimit(id, weaponName, limit)
 | limit      | Number | The limit for this weapon in the custom inventory. Set 0 to deny this weapon in this inventory | True       |
 
 #### Set Custom Black list items or weapons 
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
   VORPInv.BlackListCustomAny(id, ""name) 
 ```
 
 
-#### Set Custom permissions Move to Custom inv 
+#### Set Custom permissions Move to Custom inv
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VORPInv.AddPermissionMoveToCustom(id, "jobname", "grade")
 ```
 
-#### Set Custom permissions Take from Custom inv 
+#### Set Custom permissions Take from Custom inv
+<Badge type="tip" text="Server Side Only" />
+
 ```lua
 VORPInv.AddPermissionTakeFromCustom(id, "jobname", "grade")
 ```

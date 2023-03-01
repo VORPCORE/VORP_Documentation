@@ -1,14 +1,13 @@
-### VORP inputs is a tool that is mandatory within the vorp framework. 
+#Vorp Inputs
+
+> VORP inputs is a tool that is mandatory within the vorp framework. 
 
 [`VORP INPUTS LUA`](https://github.com/VORPCORE/vorp_inputs-lua) **download**
 
-# **How to use**
+## API Docs
 
-
-Can only be used from `client side `
-
-
-### ***Single input***
+### Single input
+<Badge type="warning" text="Client Side Only" /> 
 
 ```lua
 local button = "Confirm" --label
@@ -28,7 +27,8 @@ local placeholder = "Insert player ID" --label
 ![image](../public/inputs/inputs2.jpg)
 
 
-### ***With input Type***
+### With input Type
+<Badge type="warning" text="Client Side Only" /> 
 
 ```lua
     local button = "Confirm"
@@ -44,7 +44,9 @@ local placeholder = "Insert player ID" --label
     end)
 ```
 
-### ***Advanced inputs***   `NEW`
+### Advanced inputs  `NEW`
+
+<Badge type="warning" text="Client Side Only" /> 
 
 ```lua
 
@@ -77,7 +79,7 @@ end)
 ![image](../public/inputs/inputs.jpg)
 
 -------
-# ***Devtips***
+## Devtips
 
  **split a string into more than one separated by a space**
 

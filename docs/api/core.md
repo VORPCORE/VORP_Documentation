@@ -1,12 +1,15 @@
-##### ***VORP core is the master tool for all your projects***
+# VORP Core
 
-# ***How to use***
+## What is this?
+VORPCore  is the master tool for all your projects. All scripts in the VORPCore Framework rely on this.
+
+## API Docs
 
 
-### ***VORP CORE API***
+### Initiate Core
 
 ```lua
--- at the top of your server side files 
+-- at the top of your file
 local VORPcore = {}
 
 TriggerEvent("getCore", function(core)
@@ -20,8 +23,7 @@ end)
   *  `CallBacks`
   *  `webhooks`
 
-
-##### ***Hide or show CORE UI***
+### Hide or show CORE UI
 
 ```lua
     -- from server side
@@ -33,7 +35,7 @@ end)
 
 ```
 
-# ***Examples***
+### Notifications
 
 * API for notifications `client` side
 
@@ -63,7 +65,7 @@ VORPcore.NotifyWarning("title","subtitle","audioref","audioname",4000)
 ```
 
 
-* `Server` side
+* API for notifications `server` side
 
 ```lua
     ---------------------------------
@@ -94,9 +96,8 @@ VORPcore.NotifyWarning("title","subtitle","audioref","audioname",4000)
 
 
 
-# Server API 
-
-* Get `max` characters 
+### Get Max Characters
+<Badge type="tip" text="Server Side Only" />
 
 ```lua
 -- at the top of the server file
@@ -111,7 +112,8 @@ local maxChars = VORPcore.maxCharacters
 
 ```
 
-* Get `Users` data
+### Get Users Data 
+<Badge type="tip" text="Server Side Only" />
 
 ```lua
 -- at the top of the server file
@@ -153,6 +155,9 @@ Character.comps
 
 ```
 
+### Update/Set Character Data
+<Badge type="tip" text="Server Side Only" />
+
 * Set `functions`
 
 ```lua
@@ -187,9 +192,8 @@ Character.removeXp(100)
 
 ```
 
-# ***Instance Players uising routing buckets***
-
-* can only be used from `client` side only
+### Instance Players uising routing buckets
+<Badge type="warning" text="Client Side Only" /> 
 
 ```lua
 -- client side only
@@ -209,7 +213,8 @@ VORPcore.instancePlayers(0)
 
 ```
 
-# ***WHITELIST API***
+### Whitelist
+<Badge type="tip" text="Server Side Only" /> 
 
 * get data from white list table
 
@@ -238,7 +243,8 @@ local warnstatus = User.getPlayerwarnings()
 
 ```
 
-# AUTO DB updater
+### AUTO DB updater 
+<Badge type="tip" text="Server Side Only" />
 
 * you can use this API to create tables or add columns to DB instead of an sql file or for future updates
 * it will check once if they exist once ran
@@ -339,9 +345,8 @@ Citizen.CreateThread(function()
 end)
 
 ```
-# API for webhooks
-
-* from `client` or `server` side  send a webhook to your discord
+### Webhooks
+* Send a message from your `client` or `server` side  to a webhook to your discord
 
 ```lua
 
@@ -360,7 +365,8 @@ VorpCore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
 | footerlogo | string | link of the image                                           | false       |
 | avatar     | string | link of the image                                           | false      |
 
-# API character played hours
+### API character played hours
+<Badge type="tip" text="Server Side Only" />
 
 * this will return the character played hours that is saved in the database
 
@@ -371,8 +377,7 @@ local User = VorpCore.getUser(_source)
 
 
 
-# Call Backs
-
+### Call Backs
 * you can call back from server to client using the API
 
 ```lua
