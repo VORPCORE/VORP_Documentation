@@ -118,7 +118,7 @@ const staff = [
 
 <VPTeamPage>
   <VPTeamPageTitle>
-    <template #title>Our Team</template>
+    <template #title style="text-decoration: underline;">Our Team</template>
     <template #lead></template>
   </VPTeamPageTitle>
   <VPTeamPageSection>
