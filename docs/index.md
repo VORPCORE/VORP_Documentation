@@ -44,6 +44,9 @@ head:
     - name: title
       content: VORPCore Docs
   - - meta
+    - name: description
+      content: Official VorpCore Framework Site. The Lead framework in RedM for creating RP servers
+  - - meta
     - name: twitter:card
       content: https://avatars.githubusercontent.com/u/64416274?s=200&v=4
   - - link
