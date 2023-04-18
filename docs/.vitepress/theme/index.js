@@ -1,4 +1,12 @@
 import DefaultTheme from "vitepress/theme";
 import "./custom.css";
 
-export default DefaultTheme;
+
+import Locale from './Locale.vue'
+
+export default {
+  ...DefaultTheme,
+  // override the Layout with a wrapper component that
+  // injects the slots
+  Layout: Locale
+}
