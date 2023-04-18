@@ -7,12 +7,17 @@ export default {
   lastUpdated: true,
   cleanUrls: true,
   head: [
-    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/logo.png"}],
+    [
+      "link",
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/logo.png" },
+    ],
+
   ],
   themeConfig: {
     logo: "/logo.png",
     editLink: {
-      pattern: "https://github.com/vorpcore/vorp_documentation/edit/main/docs/:path",
+      pattern:
+        "https://github.com/vorpcore/vorp_documentation/edit/main/docs/:path",
       text: "Edit this page on GitHub",
     },
     siteTitle: "VORPCore",

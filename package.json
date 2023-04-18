@@ -11,7 +11,8 @@
   "author": "bytesizd",
   "license": "ISC",
   "dependencies": {
-    "vitepress": "^1.0.0-alpha.49",
+    "@google-translate-select/vue3": "^0.1.1",
+    "vitepress": "^1.0.0-alpha.72",
     "vitepress-plugin-auto-sidebar": "^1.0.6",
     "vue": "^3.2.47"
   },
