@@ -304,21 +304,22 @@ local weapon = VorpInv.getUserWeapon(source, weaponId)
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
-VorpInv.canCarryWeapons(source, amount, function(cb) --can carry weapons
-    local canCarry = cb
-    if canCarry then
-        --give weapon
+VorpInv.canCarryWeapons(source, amount, function(result) --can carry weapons
+    
+    if result then
+       
     else
-      --cant carry
+  
     end
-end)
+end,weaponhash) -- new parameter 
 ```
 
 | Parameter | Type               | Description                                        | Required ? |
 |-----------|--------------------|----------------------------------------------------|------------|
 | source    | Number             | The player id in game                              | True       |
 | amount    | Number             | The amount of space needed to carry the weapons    | True       |
-| cb        | Function(canCarry) | A Callback function containing a Boolean Parameter | True       |
+| cb        | Function(canCarry) | asyncrounous Callback function containing a Boolean Parameter | True       |
+| weponhash   | string             | hash of the weapon to check                        | True       |
 
 
 ### Inventory API
@@ -432,22 +433,32 @@ VorpInv.setInventoryWeaponLimit(id, weaponName, limit)
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
-  VORPInv.BlackListCustomAny(id, ""name) 
+  -- black list items or weapons 
+  ---@param string id
+  ---@param name string
+  VORPInv.BlackListCustomAny(id, name) 
 ```
-
 
 #### Set Custom permissions Move to Custom inv
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
-VORPInv.AddPermissionMoveToCustom(id, "jobname", "grade")
+--- add permissions to allow moving items or weapons 
+---@param id string 
+---@param jobname string
+---@param grade number
+VORPInv.AddPermissionMoveToCustom(id, jobname, grade)
 ```
 
 #### Set Custom permissions Take from Custom inv
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
-VORPInv.AddPermissionTakeFromCustom(id, "jobname", "grade")
+--- add permissions to allow taking items or weapons
+---@param id string 
+---@param jobname string
+---@param grade number
+VORPInv.AddPermissionTakeFromCustom(id, jobname, grade)
 ```
 
 

@@ -21,6 +21,7 @@ Create a marker (blip) on the players map
 | x | The x coordinate in the game world |
 | y | The y coordinate in the game world |
 | z | The z coordinate in the game world |
+| vector3 | instead of params send whole vector3 just add nil to x y z|
   
   Example Usage:
 ```lua
@@ -33,7 +34,8 @@ TriggerEvent("getUtils", function(utils)
 end)
 
 Citizen.CreateThread(function()
-    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z)
+    
+    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z, vector3 or nil)
 end)
 ```
 
@@ -51,7 +53,7 @@ TriggerEvent("getUtils", function(utils)
 end)
 
 Citizen.CreateThread(function()
-    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z)
+    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z,vector3 or nil)
 
     local rawblip = blip.rawblip
     -- OR
@@ -75,7 +77,7 @@ TriggerEvent("getUtils", function(utils)
 end)
 
 Citizen.CreateThread(function()
-    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z)
+    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z,vecotr3 or nil)
 
     blip:Remove()
     -- OR
@@ -104,7 +106,7 @@ TriggerEvent("getUtils", function(utils)
 end)
 
 Citizen.CreateThread(function()
-    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z)
+    local  blip = VORPutils.Blips:SetBlip('Gift', 'blip_special_series_1', 0.2, x, y, z,vector3 or nil)
 
     blip:AddRadius(64.0, -1282792512)
     -- OR
@@ -409,6 +411,7 @@ This will spawn a pedestrian in your game world
 | vehicle | seat | VS_ANY_PASSENGER, VS_DRIVER, VS_FRONT_RIGHT, VS_BACK_LEFT, VS_BACK_RIGHT, VS_EXTRA_LEFT_1, VS_EXTRA_RIGHT_1, VS_EXTRA_LEFT_2, VS_EXTRA_RIGHT_2, VS_EXTRA_LEFT_3, VS_EXTRA_RIGHT_3, VS_NUM_SEATS | { seat = "VS_FRONT_RIGHT" } |
 | mount | mount | mount entity | { mount = yourmount } |
 
+
 `VORPutils.Peds:Create()` 
   
   Example Usage:
@@ -427,7 +430,7 @@ Citizen.CreateThread(function()
         z = 118.38395690917968, y = 802.531982421875, x = -279.46728515625
     }
 
-    local ped = VORPutils.Peds:Create('u_f_m_tumgeneralstoreowner_01', coords.x, coords.y, coords.z, 0, 'world', false)
+    local ped = VORPutils.Peds:Create('u_f_m_tumgeneralstoreowner_01', coords.x, coords.y, coords.z, 0, 'world', false, isnetwork or false)
 end)
 ```
 

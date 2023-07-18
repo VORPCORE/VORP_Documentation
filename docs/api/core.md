@@ -177,8 +177,6 @@ local Character = VORPcore.getUser(_source).getUsedCharacter
 Character.setJob("miner")
 Character.setJobGrade(1)
 Character.setGroup("admin")
-Character.setMoney(1000.50)
-Character.setGold(1000.20)
 Character.setRol(1000)
 Character.setXp(5000)
 Character.setFirstname("Sadie")
@@ -389,7 +387,7 @@ TriggerEvent("getCore", function(core)
     VORPcore = core
 end)
 
- VORPcore.RpcCall("RPCcallbackname", function(result) -- asyncronouns 
+ VORPcore.RpcCall("RPCcallbackname", function(result) -- asyncronous 
 
    if result then
      -- run code
@@ -397,7 +395,7 @@ end)
       -- run code
    end
 
-   local args = true  --can be a table string or number
+   ---@param args <any>
  end,args) -- you can send extra arguments 
 
 
@@ -423,14 +421,7 @@ end)
 
 VORPcore.addRpcCallback("RPCcallbackname", function(source, cb, args)
 
-local _source = soure
-
-    if not args then 
-        cb(false)
-    end
-
-    cb(true)
-
+ return cb(any) 
 end)
 
 

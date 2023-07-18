@@ -35,7 +35,7 @@
 
 _**Example:**_
 ```lua
-    progressbar.start('Loading Example", 20000, function ()
+    progressbar.start("Loading Example", 20000, function ()
         print('DONE!!!!')
     end, 'linear')
 ```

@@ -58,14 +58,6 @@ const developers = [
         ]
     },
     {
-        avatar: 'https://avatars.githubusercontent.com/u/10902965?v=4',
-        name: 'Bytesizd',
-        title: 'Developer',
-        links: [
-            { icon: 'github', link: 'https://github.com/AndrewR3K' },
-        ]
-    },
-    {
         avatar: 'https://avatars.githubusercontent.com/u/1690916?v=4',
         name: 'BlackPegasus',
         title: 'Developer',
@@ -90,29 +82,11 @@ const staff = [
         links: []
     },
     {
-        avatar: 'https://cdn.discordapp.com/avatars/603391306672111626/fcc52165597822da0047d199b5980f17?size=1024',
-        name: 'NoTrHaN',
-        title: 'Moderator',
-        links: []
-    },
-    {
-        avatar: 'https://cdn.discordapp.com/avatars/173378385043652608/d725921a367afc8a21e1f2568b20953d?size=1024',
-        name: 'Marish',
-        title: 'Support',
-        links: []
-    },
-    {
         avatar: 'https://cdn.discordapp.com/avatars/389590964030668812/3ec3d25745311a98da2ee713365ac905?size=1024',
         name: 'Jannings',
         title: 'Support',
         links: []
     },
-    {
-        avatar: 'https://cdn.discordapp.com/avatars/837186684458106903/a_502141984e75916e0a49026d38706c40?size=1024',
-        name: 'BigSmoke',
-        title: 'Support',
-        links: []
-    }
 ]
 </script>
 
