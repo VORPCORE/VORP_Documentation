@@ -25,7 +25,7 @@ VORPMenu.CloseAll()
 * Create Menu
 
 ```lua
--- fnction or event
+-- function or event
 function OpenMenu(any,any)
 
  VORPMenu.CloseAll()
@@ -106,7 +106,7 @@ function OpenMenu(any,any)
               -- do code 
             end
 
-            if data.current.info = "param" then
+            if data.current.info == "param" then
                -- do code
               return  menu.close()
 
