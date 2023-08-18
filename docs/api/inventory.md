@@ -291,16 +291,16 @@ exports.vorp_inventory:setCustomInventoryItemLimit(invId, item, limit)
 exports.vorp_inventory:setCustomInventoryWeaponLimit(invId, weapon, limit) 
 ```
 ```lua
---- open custom inventory
+--- open inventory main or secondary
 ---@param source number player id
----@param invId string inventory id
-exports.vorp_inventory:openCustomInventory(source, invId) 
+---@param invId string? inventory id
+exports.vorp_inventory:openInventory(source, invId) 
 ```
 ```lua
---- close custom inventory
+--- close inventory main or secondary
 ---@param source number player id
----@param invId string inventory id
-exports.vorp_inventory:closeCustomInventory(source, invId) 
+---@param invId string? inventory id
+exports.vorp_inventory:closeInventory(source, invId) 
 ```
 
 ## API  **OLD WAY**
