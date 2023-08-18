@@ -43,10 +43,10 @@ exports.vorp_inventory:getUserInventoryItems(source, callback)
 --- get item amount (syncrounous)
 ---@param source number player id
 ---@param item string item name
----@param metadata table item metadata
 ---@param callback func(itemCount: number)? callback function sync or async
+---@param metadata table item metadata
 ---@return number
-exports.vorp_inventory:getItemCount(source, item, metadata,callback) 
+exports.vorp_inventory:getItemCount(source, item, callback,metadata) 
 ```
 ```lua
 --- get item amount by name
@@ -79,10 +79,10 @@ exports.vorp_inventory:getItemMatchingMetadata(source, slot, metadata, callback)
 ---@param source number player id
 ---@param item string item name
 ---@param amount number amount of item
----@param metadata table item metadata
 ---@param callback fun(boolean:boolean)? callback function sync or async
+---@param metadata table item metadata
 ---@return boolean 
-exports.vorp_inventory:addItem(source, item, amount, metadata, callback) 
+exports.vorp_inventory:addItem(source, item, amount, callback,metadata) 
 ```
 ```lua
 --- get item by main id
@@ -134,17 +134,18 @@ exports.vorp_inventory:getItem(source, item, metadata,callback)
 --- can carry weapons
 ---@param source number player id
 ---@param amount number amount of weapons
----@param weaponName string weapon name
 ---@param callback fun(canCarry: boolean)? callback function sync or async
+---@param weaponName string weapon name
 ---@return boolean
-exports.vorp_inventory:canCarryWeapons(source, amount, weaponName,callback) 
+exports.vorp_inventory:canCarryWeapons(source, amount,callback, weaponName) 
 ```
 ```lua
 --- get user inventory weapon
 ---@param source number player id
 ---@param callback fun(weapon:Weapon <table>)? callback function sync or async
+---@param weaponId number weapon id
 ---@return table weapon data
-exports.vorp_inventory:getUserWeapon(source, callback) 
+exports.vorp_inventory:getUserWeapon(source, callback,weaponId) 
 ```
 ```lua
 --- get user inventory weapons
