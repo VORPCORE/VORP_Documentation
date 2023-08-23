@@ -42,11 +42,11 @@ exports.vorp_inventory:getUserInventoryItems(source, callback)
 ```lua
 --- get item amount (syncrounous)
 ---@param source number player id
----@param item string item name
 ---@param callback func(itemCount: number)? callback function sync or async
+---@param item string item name
 ---@param metadata table item metadata
 ---@return number
-exports.vorp_inventory:getItemCount(source, item, callback,metadata) 
+exports.vorp_inventory:getItemCount(source, callback, item,metadata) 
 ```
 ```lua
 --- get item amount by name
