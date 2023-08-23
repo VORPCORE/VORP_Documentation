@@ -132,10 +132,10 @@ exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callbac
 --- get item data
 ---@param source number player id
 ---@param item string item name
----@param metadata table item metadata
----@param callback fun(item:table)? callback function sync or async
+---@param callback fun(item:table)|nil callback function sync or asyn
+---@param metadata table? item metadatac
 ---@return table item data
-exports.vorp_inventory:getItem(source, item, metadata,callback) 
+exports.vorp_inventory:getItem(source, item,callback, metadata) 
 ```
 ## Weapons
 ```lua
