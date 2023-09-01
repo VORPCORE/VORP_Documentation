@@ -384,7 +384,7 @@ local result = RPC.Callback.TriggerAwait(name, source,...)
 print(result)
 ```
 
-```ts
+```lua
 --- trigger a server callback asynchronously
 ---@param name string callback name
 ---@param source number player source
