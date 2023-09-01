@@ -311,9 +311,11 @@ exports.vorp_inventory:openInventory(source, invId)
 exports.vorp_inventory:closeInventory(source, invId) 
 ```
 
-## API  **OLD WAY**
+## API  **OLD WAY DONT USE**
 
-* include a set of functions to use `we do not recomend to use this` and the support for it is stopped, use the exports above.
+:::warning
+include a set of functions to use `we do not recomend to use this` and the support for it is stopped, use the exports above it will removed fro mthe docs soon.
+:::
 
 ```lua
 --- at the top of a server file this object will contain a set of functions thatcan be called
