@@ -422,7 +422,6 @@ local result =  RPC.Callback.TriggerAwait(name, ...)
 ```
 
 ```lua
-
 --- Register a callback
 ---@param name string callback name
 ---@param callback fun(callback:fun(result:any), ...?:any) callback function

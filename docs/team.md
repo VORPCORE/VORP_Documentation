@@ -52,7 +52,7 @@ const developers = [
     {
         avatar: 'https://avatars.githubusercontent.com/u/6077794?v=4',
         name: 'Local9',
-        title: 'Core Developer',
+        title: 'Developer',
         links: [
             { icon: 'github', link: 'https://github.com/Local9' },
         ]
