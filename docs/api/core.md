@@ -376,6 +376,11 @@ local User = VorpCore.getUser(_source)
 #### Server
 
 ```lua
+-- top of your server file 
+RPC = exports.vorp_core:ServerRpcCall()
+```
+
+```lua
 --- Trigger a server callback Synchronously
 ---@param name string callback name
 ---@param source number player source
@@ -404,6 +409,12 @@ print(result)
  end) 
 ```
 ### Cient
+
+```lua
+-- top of your client file
+RPC = exports.vorp_core:ClientRpcCall()
+```
+
 ```lua
 
 --- Trigger a client callback Asynchronously
