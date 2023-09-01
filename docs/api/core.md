@@ -372,71 +372,85 @@ VorpCore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
 local User = VorpCore.getUser(_source)
    print(User.hours)
 ```
-## RPC callbacks
-#### Server
+## RPC Callbacks
 
+### Server
+
+---
+* ServerRpcCall Export
+  * TriggerAwait
+  * TriggerAsync
+  * Register
+---
 ```lua
 -- top of your server file 
-RPC = exports.vorp_core:ServerRpcCall()
+ local ServerRPC = exports.vorp_core:ServerRpcCall() --[[@as ServerRPC]] -- for intellisense
 ```
-
+* Trigger Await Callback
 ```lua
 --- Trigger a server callback Synchronously
 ---@param name string callback name
 ---@param source number player source
 ---@vararg ...? any parameters tables strings numbers etc
-local result = RPC.Callback.TriggerAwait(name, source,...)
+local result =  ServerRP.Callback.TriggerAwait(name, source,...)
 print(result)
 ```
-
+* Trigger Async Callback
 ```lua
 --- trigger a server callback asynchronously
 ---@param name string callback name
 ---@param source number player source
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any  parameters tables strings numbers etc
- RPC.Callback.TriggerAsync(name, source, function(result)
+ ServerRPC.Callback.TriggerAsync(name, source, function(result)
   print(result)
  end, ...) 
 ```
-
+* Register Callback
 ```lua
 --- Register a callback
 ---@param name string callback name
 ---@param callback fun(source:number,callback:fun(cb:any), ...?:any)
- RPC.Callback.Register(name, function(source,callback,...)
+ ServerRPC.Callback.Register(name, function(source,callback,...)
    callback(...)
  end) 
 ```
-### Cient
+### Client
+---
+* ClientRpcCall Export
+  * TriggerAwait
+  * TriggerAsync
+  * Register
+--- 
+
 
 ```lua
--- top of your client file
-RPC = exports.vorp_core:ClientRpcCall()
+local ClientRPC = exports.vorp_core:ClientRpcCall() --[[@as ClientRPC]] -- for intellisense
 ```
-
+* Trigger Await Callback
 ```lua
 
 --- Trigger a client callback Asynchronously
 ---@param name string callback name
 ---@vararg ...? any can send as many parameters as you want 
-local result =  RPC.Callback.TriggerAwait(name, ...) 
+local result =  ClientRPC.Callback.TriggerAwait(name, ...) 
 ```
+* Trigger Async Callback
 ```lua
 --- Trigger a client callback Synchronously
 ---@param name string callback name
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any can send as many parameters as you want 
- RPC.Callback.TriggerASync(name, function(result)
+ ClientRPC.Callback.TriggerASync(name, function(result)
   print(result)
  end, ...) 
 ```
-
+* Register Callback
 ```lua
---- Register a callback
+---*Register a callback
 ---@param name string callback name
 ---@param callback fun(callback:fun(result:any), ...?:any) callback function
-RPC.Callback.Register(name, function(source,callback,...)
+ClientRPC.Callback.Register(name, function(source,callback,...)
  callback(...)
 end)
 ```
