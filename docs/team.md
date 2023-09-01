@@ -76,16 +76,28 @@ const developers = [
 ]
 const staff = [
     {
-        avatar: 'https://cdn.discordapp.com/avatars/263296570588397579/258a8647af87e59ff4992b8c48b92162?size=1024',
+        avatar: 'https://avatars.githubusercontent.com/u/101003021?v=4',
         name: 'Hobbs',
         title: 'Moderator',
-        links: []
+        links: [
+          {icon: 'github',link: "https://github.com/DerHobbs" }
+        ]
     },
     {
-        avatar: 'https://cdn.discordapp.com/avatars/389590964030668812/3ec3d25745311a98da2ee713365ac905?size=1024',
-        name: 'Jannings',
+        avatar: 'https://avatars.githubusercontent.com/u/26008458?v=4',
+        name: 'Real Stoner Gamer',
         title: 'Support',
-        links: []
+        links: [
+          {icon: 'github',link: "https://github.com/RealStonerGamer"}
+        ]
+    },
+    {
+        avatar: 'https://avatars.githubusercontent.com/u/142943445?v=4',
+        name: 'Castle',
+        title: 'Support',
+        links: [
+          {icon: 'github',link: "https://github.com/edrhawk"}
+        ]
     },
 ]
 </script>
