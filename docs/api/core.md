@@ -427,7 +427,7 @@ local result =  RPC.Callback.TriggerAwait(name, ...)
 ---@param name string callback name
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any can send as many parameters as you want 
- RPC.Callback.TriggerSync(name, function(result)
+ RPC.Callback.TriggerASync(name, function(result)
   print(result)
  end, ...) 
 ```
