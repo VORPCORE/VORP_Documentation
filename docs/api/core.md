@@ -372,57 +372,86 @@ VorpCore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
 local User = VorpCore.getUser(_source)
    print(User.hours)
 ```
-
-
-
-### Call Backs
-* you can call back from server to client using the API
+## RPC callbacks
+#### Server
 
 ```lua
-
--- top at client side
-local VORPcore = {}
-
-TriggerEvent("getCore", function(core)
-    VORPcore = core
-end)
-
- VORPcore.RpcCall("RPCcallbackname", function(result) -- asyncronous 
-
-   if result then
-     -- run code
-    else
-      -- run code
-   end
-
-   ---@param args <any>
- end,args) -- you can send extra arguments 
-
-
-
+--- Trigger a server callback Synchronously
+---@param name string callback name
+---@param source number player source
+---@vararg ...? any parameters tables strings numbers etc
+local result = RPC.Callback.TriggerAwait(name, source,...)
+print(result)
 ```
 
-| Parameter | Type   | Description                                                  | Required ? |
-|-----------|--------|--------------------------------------------------------------|------------|
-| args      | Any    | send  paramenters                                            | false       |
+```ts
+--- trigger a server callback asynchronously
+---@param name string callback name
+---@param source number player source
+---@param callback fun(result:any) callback function
+---@vararg ...? any  parameters tables strings numbers etc
+ RPC.Callback.TriggerAsync(name, source, function(result)
+  print(result)
+ end, ...) 
+```
 
+```lua
+--- Register a callback
+---@param name string callback name
+---@param callback fun(source:number,callback:fun(cb:any), ...?:any)
+ RPC.Callback.Register(name, function(source,callback,...)
+   callback(...)
+ end) 
+```
+### Cient
+```lua
 
-
-
-* Server Side
+--- Trigger a client callback Asynchronously
+---@param name string callback name
+---@vararg ...? any can send as many parameters as you want 
+local result =  RPC.Callback.TriggerAwait(name, ...) 
+```
+```lua
+--- Trigger a client callback Synchronously
+---@param name string callback name
+---@param callback fun(result:any) callback function
+---@vararg ...? any can send as many parameters as you want 
+ RPC.Callback.TriggerSync(name, function(result)
+  print(result)
+ end, ...) 
+```
 
 ```lua
 
-local VORPcore = {}
-
-TriggerEvent("getCore", function(core)
-    VORPcore = core
+--- Register a callback
+---@param name string callback name
+---@param callback fun(callback:fun(result:any), ...?:any) callback function
+RPC.Callback.Register(name, function(source,callback,...)
+ callback(...)
 end)
+```
 
-VORPcore.addRpcCallback("RPCcallbackname", function(source, cb, args)
+### Call Backs OLD
 
- return cb(any) 
+:::warning
+this will be removed from the docs use the above from now onaas its the only one supported
+:::
+
+* CLIENT
+```lua
+ --- Trigger Rpc callback
+ ---@param name string callback name
+ ---@param callback fun(result:any) result 
+ ---@param args? any extra arguments
+ VORPcore.RpcCall(name,function(result) -- asynchronous 
+   print(result)
+ end,args) -- you can send extra arguments 
+```
+* SERVER
+```lua
+---@param name string callback name
+---@param callback fun(source:number, cb: fun(any), args:any)
+VORPcore.addRpcCallback("RPCcallbackname", function(source, cb, args) 
+  return cb(any) 
 end)
-
-
 ```
