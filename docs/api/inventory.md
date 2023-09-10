@@ -9,7 +9,7 @@ vorp Inventory provide a custom API that allow you to interact with items as wel
 *  no need to call exports on the top of your files
 *  just simply call the export when needed
 
-### Items exports
+## Items exports
 ```lua
 --- checks inventory limit
 ---@param source number player id
@@ -137,7 +137,7 @@ exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callbac
 ---@return table item data
 exports.vorp_inventory:getItem(source, item,callback, metadata) 
 ```
-### Weapon exports
+## Weapon exports
 ```lua
 --- can carry weapons
 ---@param source number player id
@@ -311,7 +311,7 @@ exports.vorp_inventory:openInventory(source, invId)
 exports.vorp_inventory:closeInventory(source, invId) 
 ```
 
-## API  **OLD WAY DONT USE**
+## API  <<**OLD WAY DONT USE**>>
 
 :::warning
 include a set of functions to use `we do not recomend to use this` and the support for it is stopped, use the exports above it will removed fro mthe docs soon.
@@ -324,7 +324,7 @@ local VORPInv = exports.vorp_inventory:vorp_inventoryApi()
 ```
 You can use the API `server` side to give, delete, register item utility, get quantities and even ask if the player can carry the item.
 
-#### Item
+### Items
 
 ```lua
 --- give an item
@@ -334,7 +334,6 @@ You can use the API `server` side to give, delete, register item utility, get qu
 ---@param metadata table | nil item object
 VorpInv.addItem(source, itemName, qty, metadata)
 ```
-#### Sub Item
 
 ```lua
 --- remove an item
@@ -343,7 +342,7 @@ VorpInv.addItem(source, itemName, qty, metadata)
 ---@param metadata table| nil item object
 VorpInv.subItem(source, itemName, qty, metadata)
 ```
-#### Get Item
+
 
 ```lua
 --- get item player have in inventory
@@ -354,8 +353,6 @@ VorpInv.subItem(source, itemName, qty, metadata)
 local item = VorpInv.getItem(source, itemName, metadata)
 ```
 
-#### Get Item Count
-
 ```lua
 --- get the count of an item player has in inventory
 ---@param source player id
@@ -364,9 +361,6 @@ local item = VorpInv.getItem(source, itemName, metadata)
 ---@return number
 local itemCount = VorpInv.getItemCount(source, itemName, metadata)
 ```
-
-#### Can Carry Item
-
 
 ```lua
 --- checks item limit
@@ -377,9 +371,6 @@ local itemCount = VorpInv.getItemCount(source, itemName, metadata)
 local canCarry = VorpInv.canCarryItem(source, itemName, amount)
 ```
 
-#### Can Carry Items
-
-
 ```lua
 --- checks inventory limit
 ---@param source player id
@@ -387,7 +378,6 @@ local canCarry = VorpInv.canCarryItem(source, itemName, amount)
 ---@return boolean
 local canCarry = VorpInv.CanCarryItems(source, amount)
 ```
-#### Register Usable Item
 
 ```lua
 --- register a usable item
@@ -403,7 +393,7 @@ VorpInv.RegisterUsableItem(itemName, function(data)
 end)
 
 ```
-#### Get DB Item
+
 
 ```lua
 ---@param get an item From DB
@@ -415,8 +405,6 @@ local item = VorpInv.getDBItem(source, itemName)
 ### Weapons 
 
 
-#### Add Weapon
-
 ```lua
 --- create weapon will register a weapon
 ---@param source number player id
@@ -425,7 +413,6 @@ local item = VorpInv.getDBItem(source, itemName)
 ---@param comp table| nil components
 VorpInv.createWeapon(source, weaponName, ammo, comp)
 ```
-#### Sub Weapon
 
 ```lua
 -- remove weapon
@@ -433,7 +420,6 @@ VorpInv.createWeapon(source, weaponName, ammo, comp)
 ---@param weaponId number weapon id
 VorpInv.subWeapon(source, weaponId)
 ```
-#### Give Weapon
 
 ```lua
 --give weapon from one player to another
@@ -442,7 +428,6 @@ VorpInv.subWeapon(source, weaponId)
 ---@param target number player id
 VorpInv.giveWeapon(source, weaponId, target)
 ```
-#### Add Bullets
 
 ```lua
 --- add bullets to weapon
@@ -452,7 +437,7 @@ VorpInv.giveWeapon(source, weaponId, target)
 ---@param qty number quantity of bullets
 VorpInv.addBullets(source, weaponId, bulletType, qty)
 ```
-#### Sub Bullets
+
 
 ```lua
 --- subBullets
@@ -462,7 +447,7 @@ VorpInv.addBullets(source, weaponId, bulletType, qty)
 ---@param qty number quantity of bullets
 VorpInv.subBullets(source, weaponId, bulletType, qty)
 ```
-#### Get Weapon Bullets
+
 
 ```lua
 --- get amount of bullets
@@ -471,7 +456,7 @@ VorpInv.subBullets(source, weaponId, bulletType, qty)
 ---@return bullets number
 local bullets = VorpInv.getWeaponBullets(source, weaponId)
 ```
-#### Get Weapon Components
+
 
 ```lua
 --- get weapon components
@@ -480,7 +465,7 @@ local bullets = VorpInv.getWeaponBullets(source, weaponId)
 ---@return weaponComps table
 local weaponComps = VorpInv.getWeaponComponents(source, weaponId)
 ```
-#### Get Weapons
+
 
 ```lua
 --- get all user weapons
@@ -488,7 +473,7 @@ local weaponComps = VorpInv.getWeaponComponents(source, weaponId)
 ---@return weapons table
 local weapons = VorpInv.getUserWeapons(source)
 ```
-#### Get Weapon
+
 
 ```lua
 --- get user weapon by id
@@ -497,7 +482,7 @@ local weapons = VorpInv.getUserWeapons(source)
 ---@return weapon table
 local weapon = VorpInv.getUserWeapon(source, weaponId)
 ```
-#### Can Carry Weapons
+
 
 ```lua
 --- can carry weapons
@@ -512,7 +497,7 @@ end,weaponhash) -- new parameter
 
 ### Inventory API
 
-#### Get Inventory
+
 
 ```lua
 --- get user inventory items
@@ -520,7 +505,7 @@ end,weaponhash) -- new parameter
 ---@return table | nil
 local inventory = VorpInv.getUserInventory(source)
 ```
-#### Open Player Inventory
+
 
 ```lua
 -- opens source inventory not others inventories
@@ -528,7 +513,7 @@ local inventory = VorpInv.getUserInventory(source)
 ---@param invID string inventory to open
 VorpInv.OpenInv(source,invID) 
 ```
-#### Close Player Inventory
+
 
 ```lua
 -- close inventory
@@ -536,8 +521,6 @@ VorpInv.OpenInv(source,invID)
 ---@param invID string inventory to open
 VorpInv.CloseInv(source,invID)
 ```
-
-#### Register Inventory
 
 
 ```lua
@@ -555,15 +538,12 @@ VorpInv.CloseInv(source,invID)
 VorpInv.registerInventory(invId, name, slots, acceptWeapons, shared, ignoreStack, whitelistItems, usepermissions,useBlackList, whitelistWeapons)
 ```
 
-#### Remove Inventory
-
-
 ```lua
 --- remove inventory from session
 ---@param invId string inventory id
 VorpInv.removeInventory(id)
 ```
-#### Set Custom Inventory Item Limit
+
 
 ```lua
 ---@param invId string inventory id
@@ -572,7 +552,7 @@ VorpInv.removeInventory(id)
 ---@param limit number item limt
 VorpInv.setInventoryItemLimit(id, itemName, limit)
 ```
-#### Set Custom Inventory Weapon Limit
+
 
 ```lua
 ---@param id string inventory id
@@ -581,7 +561,7 @@ VorpInv.setInventoryItemLimit(id, itemName, limit)
 VorpInv.setInventoryWeaponLimit(id, weaponName, limit)
 ```
 
-#### Set Custom Black list items or weapons 
+
 
 ```lua
   -- black list items or weapons 
@@ -589,8 +569,6 @@ VorpInv.setInventoryWeaponLimit(id, weaponName, limit)
   ---@param name string
   VORPInv.BlackListCustomAny(id, name) 
 ```
-
-#### Set Custom permissions Move to Custom inv
 
 
 ```lua
@@ -601,9 +579,6 @@ VorpInv.setInventoryWeaponLimit(id, weaponName, limit)
 VORPInv.AddPermissionMoveToCustom(id, jobname, grade)
 ```
 
-#### Set Custom permissions Take from Custom inv
-
-
 ```lua
 --- add permissions to allow taking items or weapons
 ---@param id string 
@@ -611,8 +586,6 @@ VORPInv.AddPermissionMoveToCustom(id, jobname, grade)
 ---@param grade number
 VORPInv.AddPermissionTakeFromCustom(id, jobname, grade)
 ```
-
-#### update custom inventory slots
 
 
 ```lua
