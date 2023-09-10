@@ -1,22 +1,22 @@
 # VORP inventory documentation
 vorp Inventory provide a custom API that allow you to interact with items as well as creating custom inventories.
 
-## Exports 
+# Exports 
 
 <Badge type="tip" text="Server Side Only" />
 
 *  exports are better to use and faster and we recommend from now on to use them
 *  no need to call exports on the top of your files
-*  just simply call the export
+*  just simply call the export when needed
 
-## Items
+### Items exports
 ```lua
 --- checks inventory limit
 ---@param source number player id
 ---@param amount number amount of item
 ---@param callback fun(canCarry:boolean)? callback function sync or async
 ---@return boolean
-exports.vorp_inventory:canCarryItem(source, amount, callback) 
+exports.vorp_inventory:canCarryItems(source, amount, callback) 
 ```
 ```lua
 --- check item limit
@@ -25,7 +25,7 @@ exports.vorp_inventory:canCarryItem(source, amount, callback)
 ---@param amount number amount of item
 ---@param callback fun(canCarry:boolean)? callback function sync or async
 ---@return boolean
-exports.vorp_inventory:canCarryItems(source, item, amount, callback) 
+exports.vorp_inventory:canCarryItem(source, item, amount, callback) 
 ```
 ```lua
 --- gets user inventory items
@@ -137,7 +137,7 @@ exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callbac
 ---@return table item data
 exports.vorp_inventory:getItem(source, item,callback, metadata) 
 ```
-## Weapons
+### Weapon exports
 ```lua
 --- can carry weapons
 ---@param source number player id
@@ -237,7 +237,7 @@ exports.vorp_inventory:giveWeapon(source, weaponId, target,callback)
 ---@return boolean if async
 exports.vorp_inventory:subWeapon(source, weaponId,callback) 
 ```
-## inventory
+## Inventory exports
 ```lua
 --- register custom inventory
 ---@param invId string inventory id
