@@ -240,18 +240,8 @@ exports.vorp_inventory:subWeapon(source, weaponId,callback)
 ## Inventory exports
 ```lua
 --- register custom inventory
----@param invId string inventory id
----@param name string inventory name
----@param slots number inventory slots
----@param acceptWeapons boolean accept weapons
----@param shared boolean shared
----@param ignoreStack boolean ignore stack
----@param whitelistItems boolean whitelist items
----@param usePermisions boolean use permissions
----@param useBlacklist boolean use blacklist
----@param whitelistWeapons boolean whitelist weapons
-exports.vorp_inventory:registerInventory(invId, name, slots, acceptWeapons, shared, ignoreStack, whitelistItems,
-                                                  usePermisions, useBlacklist, whitelistWeapons)
+---@param data { id:string, name:string, limit:number, acceptWeapons:boolean, shared:boolean, ignoreItemStackLimit:boolean, whitelistItems:table, UsePermissions:boolean, UseBlackList:boolean, whitelistWeapons:table }
+exports.vorp_inventory:registerInventory(data)
  ```
 ```lua
 --- add permissions to move item to inventory
