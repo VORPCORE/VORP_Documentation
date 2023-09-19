@@ -106,7 +106,7 @@ exports.vorp_inventory:getItemByMainId(source, mainid, callback)
 ---@param id number item id
 ---@param callback fun(boolean:boolean)? callback function sync or async
 ---@return boolean if async
-exports.vorp_inventory:subItemById(source, id, callback) 
+exports.vorp_inventory:subItemID(source, id, callback) 
 ```
 ```lua
 --- sub item
