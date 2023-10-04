@@ -411,3 +411,16 @@ VORPcore.addRpcCallback("RPCcallbackname", function(source, cb, args)
   return cb(any) 
 end)
 ```
+
+# EVENT LISTENERS
+
+* SERVER
+```lua
+-- group change
+TriggerEvent("vorp:playerGroupChange", self.source, self.group) -- listener for group change
+-- job change
+TriggerEvent("vorp:playerJobChange", self.source, self.job) -- listener for job change
+-- job grade change
+TriggerEvent("vorp:playerJobGradeChange", self.source, self.jobgrade) -- listener for job grade change
+
+```
