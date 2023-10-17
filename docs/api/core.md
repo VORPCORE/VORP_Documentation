@@ -2,7 +2,7 @@
 
 ```lua
 -- at the top of your server file or client 
-local VORPcore = {}
+local VORPcore = {} -- core object
 
 TriggerEvent("getCore", function(core)
     VORPcore = core
@@ -48,20 +48,20 @@ VORPcore.NotifyLeftRank("title","subtitle","dict","icon",4000,"color")
 
 ```lua
    
-    VORPcore.NotifyTip(_source,"title",4000)
-    VORPcore.NotifyLeft(_source,"title","subtitle","dict","icon",4000,"color")
-    VORPcore.NotifyRightTip(_source,"title",4000)
-    VORPcore.NotifyObjective(_source,"title",4000)
-    VORPcore.NotifyTop(_source,"title","location",4000)
-    VORPcore.NotifySimpleTop(_source,"title","subtitle",4000)
-    VORPcore.NotifyAvanced(_source,"title","dict","icon","color",4000)
-    VORPcore.NotifyCenter(_source,"title",4000)
-    VORPcore.NotifyBottomRight(_source,"title",4000)
-    VORPcore.NotifyFail(_source,"title","subtitle",4000)
-    VORPcore.NotifyDead(_source,"title","audioref","audioname",4000)
-    VORPcore.NotifyUpdate(_source,"title","subtitle",4000)
-    VORPcore.NotifyWarning(_source,"title","subtitle","audioref","audioname",4000)
-    VORPcore.NotifyLeftRank(_source,"title","subtitle","dict","icon",4000,"color")
+ VORPcore.NotifyTip(_source,"title",4000)
+ VORPcore.NotifyLeft(_source,"title","subtitle","dict","icon",4000,"color")
+ VORPcore.NotifyRightTip(_source,"title",4000)
+ VORPcore.NotifyObjective(_source,"title",4000)
+ VORPcore.NotifyTop(_source,"title","location",4000)
+ VORPcore.NotifySimpleTop(_source,"title","subtitle",4000)
+ VORPcore.NotifyAvanced(_source,"title","dict","icon","color",4000)
+ VORPcore.NotifyCenter(_source,"title",4000)
+ VORPcore.NotifyBottomRight(_source,"title",4000)
+ VORPcore.NotifyFail(_source,"title","subtitle",4000)
+ VORPcore.NotifyDead(_source,"title","audioref","audioname",4000)
+ VORPcore.NotifyUpdate(_source,"title","subtitle",4000)
+ VORPcore.NotifyWarning(_source,"title","subtitle","audioref","audioname",4000)
+ VORPcore.NotifyLeftRank(_source,"title","subtitle","dict","icon",4000,"color")
 
 ```
 
@@ -177,7 +177,7 @@ local getstatus = VORPwl.getEntry(identifier).getStatus()
 
 --get players warnings
 -- use the API core to get source data
-local User = VorpCore.getUser(_source)
+local User = VORPcore.getUser(_source)
 local warnstatus = User.getPlayerwarnings() 
 
 ```
@@ -290,7 +290,7 @@ end)
 ---@param logo? string logo image link
 ---@param footerlogo? string link image
 ---@param avatar? string link  
-VorpCore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, avatar)
+VORPcore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, avatar)
 
 ```
 
@@ -300,13 +300,14 @@ VorpCore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
 
 
 ```lua
-local User = VorpCore.getUser(_source)
+local User = VORPcore.getUser(_source)
    print(User.hours)
    print(User.getGroup) -- group users table 
 ```
 ## RPC Callbacks
 
 ### Server
+<Badge type="tip" text="Server Side Only" />
 
 ---
 * ServerRpcCall Export
@@ -348,6 +349,9 @@ print(result)
  end) 
 ```
 ### Client
+
+<Badge type="tip" text="Client Side Only" />
+
 ---
 * ClientRpcCall Export
   * TriggerAwait
@@ -390,7 +394,7 @@ end)
 ### Call Backs OLD
 
 :::warning
-this will be removed from the docs use the above from now onaas its the only one supported
+this will be removed from the docs use the above from now on as its the only supported callbacks.
 :::
 
 * CLIENT
@@ -412,15 +416,18 @@ VORPcore.addRpcCallback("RPCcallbackname", function(source, cb, args)
 end)
 ```
 
-# EVENT LISTENERS
+### Event Listners
 
 * SERVER
 ```lua
 -- group change
-TriggerEvent("vorp:playerGroupChange", self.source, self.group) -- listener for group change
+AdventHandler("vorp:playerGroupChange",function(source, group)
+end)
 -- job change
-TriggerEvent("vorp:playerJobChange", self.source, self.job) -- listener for job change
+AdventHandler("vorp:playerJobChange", function(source, job) 
+end)
 -- job grade change
-TriggerEvent("vorp:playerJobGradeChange", self.source, self.jobgrade) -- listener for job grade change
+AdventHandler("vorp:playerJobGradeChange",function(source, jobgrade)
+end) 
 
 ```

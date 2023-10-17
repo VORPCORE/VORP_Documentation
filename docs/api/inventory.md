@@ -217,9 +217,13 @@ exports.vorp_inventory:deleteWeapon(source, weaponId, callback)
 ---@param components table weapon components
 ---@param comps table weapon components
 ---@param callback fun(boolean:boolean)? callback function sync or async
+---@param serial string? custom serial number for weapon
+---@param label string? custom label for weapon
+---@param desc string? custom desc for weapons
 ---@return boolean if async
-exports.vorp_inventory:createWeapon(source, weaponName, ammo, components, comps, callback) 
+exports.vorp_inventory:createWeapon(source, weaponName, ammo, components, comps, callback,serial,label,desc) 
 ```
+
 ```lua
 --- give weapon
 ---@param source number player id
