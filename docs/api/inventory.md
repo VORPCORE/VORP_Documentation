@@ -90,7 +90,7 @@ exports.vorp_inventory:getItemDB(item, callback)
 ---@param callback fun(boolean:boolean)? callback function sync or async
 ---@param metadata table item metadata
 ---@return boolean 
-exports.vorp_inventory:addItem(source, item, amount, callback,metadata) 
+exports.vorp_inventory:addItem(source, item, amount, metadata,callback) 
 ```
 ```lua
 --- get item by main id
