@@ -244,7 +244,7 @@ exports.vorp_inventory:subWeapon(source, weaponId,callback)
 ## Inventory exports
 ```lua
 --- register custom inventory
----@param data { id:string, name:string, limit:number, acceptWeapons:boolean, shared:boolean, ignoreItemStackLimit:boolean, whitelistItems:table, UsePermissions:boolean, UseBlackList:boolean, whitelistWeapons:table }
+---@param data { id:string, name:string, limit:number, acceptWeapons:boolean, shared:boolean, ignoreItemStackLimit:boolean, whitelistItems:boolean, UsePermissions:boolean, UseBlackList:boolean, whitelistWeapons:boolean }
 exports.vorp_inventory:registerInventory(data)
  ```
 ```lua
@@ -252,14 +252,14 @@ exports.vorp_inventory:registerInventory(data)
 ---@param invId string inventory id
 ---@param jobName string job name
 ---@param jobgrade number job grade
-exports.vorp_inventory:addPermissionMoveToCustom(invId, jobName, jobgrade) 
+exports.vorp_inventory:AddPermissionMoveToCustom(invId, jobName, jobgrade) 
 ```
 ```lua
 --- add permissions to take item from inventory
 ---@param invId string inventory id
 ---@param jobName string job name
 ---@param jobgrade number job grade
-exports.vorp_inventory:addPermissionTakeFromCustom(invId, jobName, jobgrade) 
+exports.vorp_inventory:AddPermissionTakeFromCustom(invId, jobName, jobgrade) 
 ```
 ```lua
 --- black list items or weapons
