@@ -1,16 +1,10 @@
 ## VORP CORE
 
 ```lua
--- at the top of your server file or client 
-local VORPcore = {} -- core object
-
-TriggerEvent("getCore", function(core)
-    VORPcore = core
-end)
-
+-- on the top of your client or server files
+local VORPcore = exports.vorp_core:GetCore() -- NEW includes  new callback system
 ```
-
-### Hide or show CORE UI
+### CORE UI
 
 ```lua
     -- from server side
@@ -21,7 +15,7 @@ end)
 
 ```
 
-###  Notifications functions
+###  Notifications
 
 * CLIENT
 
@@ -65,13 +59,11 @@ VORPcore.NotifyLeftRank("title","subtitle","dict","icon",4000,"color")
 
 ```
 
-
-
 ### Get Max Characters
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
--- this returns a number
+-- this returns a number from vorp core config
 local maxChars = VORPcore.maxCharacters 
 
 ```
@@ -86,11 +78,10 @@ local User = VORPcore.getUser(_source)
 
 -- Return user group (not character group)
 local UserGroup = User.getGroup 
+local UserHours = User.hours 
 
 -- Return character selected by user
 local Character = User.getUsedCharacter 
--- or
-local Character = VORPcore.getUser(_source).getUsedCharacter
 
 --Data you can get
 Character.identifier
@@ -294,16 +285,6 @@ VORPcore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
 
 ```
 
-                        
-### User Data
-<Badge type="tip" text="Server Side Only" />
-
-
-```lua
-local User = VORPcore.getUser(_source)
-   print(User.hours)
-   print(User.getGroup) -- group users table 
-```
 ## RPC Callbacks
 
 ### Server
@@ -316,9 +297,13 @@ local User = VORPcore.getUser(_source)
   * Register
 ---
 ```lua
--- top of your server file 
+-- top of your server file if you only need the callbacks
  local ServerRPC = exports.vorp_core:ServerRpcCall() --[[@as ServerRPC]] -- for intellisense
+ -- or call core objcet
+ local VORPcore = exports.vorp_core:GetCore()  -- contains callbacks as well
+ local ServerRPC = VORPcore
 ```
+
 * Trigger Await Callback
 ```lua
 --- Trigger a server callback Synchronously
@@ -359,9 +344,13 @@ print(result)
   * Register
 --- 
 
-
 ```lua
+-- top of your client files if you need only call back system
 local ClientRPC = exports.vorp_core:ClientRpcCall() --[[@as ClientRPC]] -- for intellisense
+-- or get core object
+local VORPcore = exports.vorp_core:GetCore()-- contains call backs aswell
+local ClientRPC = VORPcore
+
 ```
 * Trigger Await Callback
 ```lua
@@ -391,11 +380,51 @@ ClientRPC.Callback.Register(name, function(source,callback,...)
 end)
 ```
 
-### Call Backs OLD
+### Event Listners
+
+* SERVER
+```lua
+-- group changed
+AddEventHandler("vorp:playerGroupChange",function(source, group)
+end)
+-- job changed
+AddEventHandler("vorp:playerJobChange", function(source, job) 
+end)
+-- job grade changed
+AddEventHandler("vorp:playerJobGradeChange",function(source, jobgrade)
+end) 
+
+```
+### Data View
+
+* CLIENT
+
+```lua
+ -- call dataview in your fxmanifest
+ client_scripts {
+    '@vorp_core/client/dataview.lua'
+ }
+
+```
+
+
+
+### Deprecated
 
 :::warning
-this will be removed from the docs use the above from now on as its the only supported callbacks.
+this will be removed from the docs use the above from now on as its the only supported callbacks they will still work ofc.
 :::
+
+
+```lua
+-- at the top of your server file or client 
+local VORPcore = {} -- core object
+
+TriggerEvent("getCore", function(core)
+    VORPcore = core
+end)
+
+```
 
 * CLIENT
 ```lua
@@ -414,20 +443,4 @@ this will be removed from the docs use the above from now on as its the only sup
 VORPcore.addRpcCallback("RPCcallbackname", function(source, cb, args) 
   return cb(any) 
 end)
-```
-
-### Event Listners
-
-* SERVER
-```lua
--- group change
-AdventHandler("vorp:playerGroupChange",function(source, group)
-end)
--- job change
-AdventHandler("vorp:playerJobChange", function(source, job) 
-end)
--- job grade change
-AdventHandler("vorp:playerJobGradeChange",function(source, jobgrade)
-end) 
-
 ```
