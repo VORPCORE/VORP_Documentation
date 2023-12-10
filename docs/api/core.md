@@ -380,7 +380,7 @@ ClientRPC.Callback.Register(name, function(source,callback,...)
 end)
 ```
 
-### Event Listners
+## Event Listners
 
 * SERVER
 ```lua
@@ -395,10 +395,10 @@ AddEventHandler("vorp:playerJobGradeChange",function(source, jobgrade)
 end) 
 
 ```
-### Data View
+## Data View
 
 * CLIENT
-
+  
 ```lua
  -- call dataview in your fxmanifest
  client_scripts {
@@ -407,9 +407,18 @@ end)
 
 ```
 
+## State Bags
 
+state bags is a new feature in vorp core that allows to syncronise data between clients
 
-### Deprecated
+* CLIENT 
+  * Listen for this variable when you want to know that a payer has choosen a character and is In Session
+```lua
+-- listen to this in your client scripts 
+LocalPlayer.state.IsInSession
+```
+
+## Deprecated
 
 :::warning
 this will be removed from the docs use the above from now on as its the only supported callbacks they will still work ofc.
