@@ -382,7 +382,7 @@ end)
 
 ## Event Listners
 
-* SERVER
+### SERVER
 ```lua
 -- group changed
 AddEventHandler("vorp:playerGroupChange",function(source, group)
@@ -397,7 +397,7 @@ end)
 ```
 ## Data View
 
-* CLIENT
+### CLIENT
   
 ```lua
  -- call dataview in your fxmanifest
@@ -411,7 +411,7 @@ end)
 
 state bags is a new feature in vorp core that allows to syncronise data between clients
 
-* CLIENT 
+### CLIENT 
   * Listen for this variable when you want to know that a payer has choosen a character and is In Session
 ```lua
 -- listen to this in your client scripts 
@@ -424,7 +424,7 @@ LocalPlayer.state.IsInSession
 this will be removed from the docs use the above from now on as its the only supported callbacks they will still work ofc.
 :::
 
-
+### SERVER/CLIENT
 ```lua
 -- at the top of your server file or client 
 local VORPcore = {} -- core object
