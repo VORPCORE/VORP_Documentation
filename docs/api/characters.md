@@ -10,7 +10,6 @@ This is a character creation and management script for VORPCore
 
 <Badge type="warning" text="Client Side Only" /> 
 
-* Client
 ```lua
 RegisterNetEvent("vorp:SelectedCharacter", function(charid)
    -- The code to trigger when a character has been selected
