@@ -6,18 +6,23 @@ This is a character creation and management script for VORPCore
 ## API Docs
 
 ### Character Selected Event
-> This code will trigger when a player has selected a character and joined into a server.
-
-**Example Usage Case:** Someone might use this to only start their scripts logic once a character has been selected.
+> This code will trigger when a player has selected a character and joined the server with that character.
 
 <Badge type="warning" text="Client Side Only" /> 
 
+* Client
 ```lua
--- client side
-RegisterNetEvent("vorp:SelectedCharacter")
-AddEventHandler("vorp:SelectedCharacter", function(charid)
+RegisterNetEvent("vorp:SelectedCharacter", function(charid)
    -- The code to trigger when a character has been selected
 end)
+```
+<Badge type="warning" text="Server Side Only" /> 
+
+```lua
+AddEventHandler("vorp:SelectedCharacter",function(source,character)
+  local group = character.Group
+end)
+
 ```
 
 ### New Character Created Event
@@ -27,7 +32,6 @@ Example Usage Case: Someone might use this to create/select a first spawn locati
 <Badge type="warning" text="Client Side Only" /> 
 
 ```lua
--- client side
 AddEventHandler("vorp:initNewCharacter", function()
     -- The code to trigger when a character has been created
 end)
@@ -39,7 +43,7 @@ end)
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
--- server side
+
 TriggerEvent("vorpcharacter:getPlayerComps", _source, function(data)
     local json_skin = data.skins
 	local json_cloths = data.cloths
@@ -52,7 +56,7 @@ end)
 <Badge type="warning" text="Client Side Only" /> 
 
 ```lua
--- client side
+
 TriggerEvent("vorpcharacter:getPlayerComps", _source, function(skin, cloths)
     local beard = skin.Beard -- Beard is in the database 
 	local hat = cloths.Hat -- Hat is in the database
@@ -65,7 +69,6 @@ end)
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
--- server side
 
 local _source = source
 local CompHash = "component hash"
@@ -78,7 +81,6 @@ TriggerEvent("vorpcharacter:setPlayerSkinChange", _source, "Beard", CompHash)
 <Badge type="warning" text="Client Side Only" /> 
 
 ```lua
--- server side
 local _source = source
 local CompHash = "component hash"
 
@@ -91,7 +93,6 @@ TriggerServerEvent("vorpcharacter:setPlayerSkinChange", "Hat", CompHash)
 <Badge type="warning" text="Client Side Only" /> 
 
 ```lua
---client side
 TriggerEvent("vorpcharacter:refreshPlayerSkin")
 ```
 
@@ -101,7 +102,6 @@ TriggerEvent("vorpcharacter:refreshPlayerSkin")
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
--- client side
 TriggerServerEvent("vorpcharacter:getPlayerSkin")
 ```
 
