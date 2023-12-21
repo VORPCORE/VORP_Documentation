@@ -242,6 +242,15 @@ exports.vorp_inventory:giveWeapon(source, weaponId, target,callback)
 exports.vorp_inventory:subWeapon(source, weaponId,callback) 
 ```
 ## Inventory exports
+
+```lua
+---check if inventory is registered 
+---@param id string inventory id
+---@param callback fun()? callback function async or sync leave nil
+exports.vorp_inventory:isCustomInventoryRegistered(id, callback)
+
+```
+
 ```lua
 --- register custom inventory
 ---@param data { id:string, name:string, limit:number, acceptWeapons:boolean, shared:boolean, ignoreItemStackLimit:boolean, whitelistItems:boolean, UsePermissions:boolean, UseBlackList:boolean, whitelistWeapons:boolean }
@@ -588,6 +597,8 @@ VORPInv.AddPermissionTakeFromCustom(id, jobname, grade)
 ---@param slots number slots to set
 VORPiNV.updateCustomInventorySlots(invId,slots)
 ```
+
+`
 
 
 
