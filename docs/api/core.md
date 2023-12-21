@@ -89,6 +89,7 @@ Character.charIdentifier
 Character.group
 Character.job
 Character.jobGrade
+Character.jobLabel
 Character.money
 Character.gold
 Character.rol
@@ -116,6 +117,7 @@ local Character = VORPcore.getUser(_source).getUsedCharacter
 
 Character.setJob("miner")
 Character.setJobGrade(1)
+Character.setJobLabel("Miner")
 Character.setGroup("admin")
 Character.setRol(1000)
 Character.setXp(5000)
