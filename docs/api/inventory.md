@@ -598,7 +598,7 @@ VORPInv.AddPermissionTakeFromCustom(id, jobname, grade)
 VORPiNV.updateCustomInventorySlots(invId,slots)
 ```
 
-`
+
 
 
 
