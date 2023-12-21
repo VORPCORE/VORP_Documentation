@@ -421,6 +421,7 @@ LocalPlayer.state.Character.IsInSession -- returns a boolean if player have choo
 LocalPlayer.state.Character.FirstName -- returns player first name
 LocalPlayer.state.Character.LastName -- returns player last name
 LocalPlayer.state.Character.Job  -- returns player job name
+LocalPlayer.state.Character.JobLabel -- returns job label
 LocalPlayer.state.Character.Grade  -- returns player job grade
 LocalPlayer.state.Character.Group -- returns a character group
 ```
