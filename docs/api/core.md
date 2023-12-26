@@ -377,7 +377,7 @@ local result =  ClientRPC.Callback.TriggerAwait(name, ...)
 ---*Register a callback
 ---@param name string callback name
 ---@param callback fun(callback:fun(result:any), ...?:any) callback function
-ClientRPC.Callback.Register(name, function(source,callback,...)
+ClientRPC.Callback.Register(name, function(callback,...)
  callback(...)
 end)
 ```
