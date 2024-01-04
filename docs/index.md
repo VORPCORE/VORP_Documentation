@@ -8,7 +8,7 @@ hero:
   image:
     src: /logo.png
     alt: VorpCore logo
-  tagline: Made by the communitty on their free time to create RedM roleplay servers based on the RDR2 game
+  tagline: Made by the community on their free time to create RedM roleplay servers based on the RDR2 game
   actions:
     - theme: brand
       text: Get Started
