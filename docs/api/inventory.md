@@ -314,10 +314,10 @@ exports.vorp_inventory:openInventory(source, invId)
 exports.vorp_inventory:closeInventory(source, invId) 
 ```
 
-## API  <<**OLD WAY DONT USE**>>
+## API DEPRECATED
 
 :::warning
-include a set of functions to use `we do not recomend to use this` and the support for it is stopped, use the exports above it will removed fro mthe docs soon.
+ `we do not recomend to use this` exports are a better way to communicate with the inventory, use the exports above.
 :::
 
 ```lua
