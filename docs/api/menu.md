@@ -69,8 +69,8 @@ function OpenMenu(any,any)
             value = "value",
             desc = "description",
             ---@param any <table,string,number>
-            info = any
-            info2 = {
+            info = any --(optional)
+            info2 = { --(optional)
                 this = "string",
                 that = 111,
                 etc = table,
@@ -82,42 +82,40 @@ function OpenMenu(any,any)
  
  -- * open menu * --
 
-    VORPMenu.Open("default",GetCurrentResourceName(),"vorp_menu",
+    VORPMenu.Open("default",GetCurrentResourceName(),"vorp_menu_OpenMenu", -- unique namespace
 
     {
         title = "menu title",
         subtext = "menu sub text",
         align = "align", -- top-right , top-center , top-left
         elements = MenuElements, -- elements needed
-        lastmenu = "function name", -- if you wish to go back to the previous menu , or remove
-        itemHeight = "4vh", -- set all elements to this height if they are not definded in the element
+        lastmenu = "function name", -- if you wish to go back to the previous menu , or remove (optional)
+        itemHeight = "4vh", -- set all elements to this height if they are not definded in the element (optional)
     },
 
 
-        function(data, menu)
+    function(data, menu)
             -- to go back to lastmenu if any
-            if (data.current == "backup") then
+        if (data.current == "backup") then --(optional)
               -- params last function need 
-               return  _G[trigger.data](any,any)
-            end
+               return  _G[data.trigge](any,any) -- or the function of the last menu
+        end
 
               -- get any of the params you definded in the elements
-            if data.current.value == "value" then
+        if data.current.value == "value" then
               -- do code 
-            end
+        end
 
-            if data.current.info == "param" then
+        if data.current.info == "param" then
                -- do code
-              return  menu.close()
+         return  menu.close()
 
               -- modify elements or create
-            end
+        end
 
-        end,function(data,menu)
+    end,function(data,menu) --(optional)
         -- if theres no previous menu close menu on backspace press
-            menu.close()
-        end)
-
+            menu.close() 
     end)
 
 end
