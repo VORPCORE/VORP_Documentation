@@ -98,7 +98,7 @@ function OpenMenu(any,any)
             -- to go back to lastmenu if any
         if (data.current == "backup") then --(optional)
               -- params last function need 
-               return  _G[data.trigge](any,any) -- or the function of the last menu
+               return  _G[data.trigger](any,any) -- or the function of the last menu
         end
 
               -- get any of the params you definded in the elements
