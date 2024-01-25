@@ -418,12 +418,17 @@ state bags is a new feature in vorp core that allows to syncronise data between 
 ```lua
 -- listen to this in your client scripts 
 LocalPlayer.state.Character.IsInSession -- returns a boolean if player have choosen a character
-LocalPlayer.state.Character.FirstName -- returns player first name
-LocalPlayer.state.Character.LastName -- returns player last name
-LocalPlayer.state.Character.Job  -- returns player job name
-LocalPlayer.state.Character.JobLabel -- returns job label
-LocalPlayer.state.Character.Grade  -- returns player job grade
-LocalPlayer.state.Character.Group -- returns a character group
+LocalPlayer.state.Character.FirstName 
+LocalPlayer.state.Character.LastName
+LocalPlayer.state.Character.Job 
+LocalPlayer.state.Character.JobLabel 
+LocalPlayer.state.Character.Grade  
+LocalPlayer.state.Character.Group 
+LocalPlayer.state.Character.Age 
+LocalPlayer.state.Character.Gender
+LocalPlayer.state.Character.CharDescription
+LocalPlayer.state.Character.Money
+LocalPlayer.state.Character.Gold
 ```
 
 ## Deprecated
