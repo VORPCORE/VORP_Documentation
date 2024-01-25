@@ -67,21 +67,41 @@ VORPcore.NotifyLeftRank("title","subtitle","dict","icon",4000,"color")
 local maxChars = VORPcore.maxCharacters 
 
 ```
+### Get User Data
+<Badge type="tip" text="Server Side Only" />
+
+```lua
+---contains functions and information from source
+---@param source number
+---@return table | func 
+function VORPcore.getUser(source) end
+```
+```lua
+---@param charid number
+---@return table user data 
+function VORPcore.getUserByCharId(charid) end
+```
+
+```lua
+local User = VORPcore.getUser(source) 
+local UserGroup = User.getGroup --Returns user group (not character group)
+local UserHours = User.hours
+local userSource = User.source
+local userCharacter = User.getUsedCharacter -- returns character data
+
+-- functions
+User.SetGroup(group)
+User.getIdentifier()
+User.gtUserCharacters()
+```
+
 
 ### Character Data 
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
-
--- contains functions and information from all characters
-local User = VORPcore.getUser(_source)
-
--- Return user group (not character group)
-local UserGroup = User.getGroup 
-local UserHours = User.hours 
-
--- Return character selected by user
-local Character = User.getUsedCharacter 
+-- contains functions and information from source
+local Character = VORPcore.getUser(source).getUsedCharacter 
 
 --Data you can get
 Character.identifier
@@ -101,6 +121,11 @@ Character.coords
 Character.isdead
 Character.skin
 Character.comps
+Character.compTints
+Character.age
+Character.gender
+Character.charDescription
+Character.nickname
 
 ```
 
@@ -113,8 +138,6 @@ Character.comps
 
 local Character = VORPcore.getUser(_source).getUsedCharacter
 
---Functions you can set using the API
-
 Character.setJob("miner")
 Character.setJobGrade(1)
 Character.setJobLabel("Miner")
@@ -125,10 +148,15 @@ Character.setFirstname("Sadie")
 Character.setLastname("Adler")
 Character.updateSkin("need comps in json")
 Character.updateComps("need comps in json")
+Character.updateCompTints("need comps in json")
 Character.addCurrency(0, 1000) -- Add money 1000 | 0 = money, 1 = gold, 2 = rol
 Character.removeCurrency(0, 1000) -- Remove money 1000 | 0 = money, 1 = gold, 2 = rol
 Character.addXp(100)
 Character.removeXp(100)
+Character.setAge(45)
+Character.setCharDescription("string")
+Character.setNickName("string")
+Character.setGender("string")
 
 ```
 
