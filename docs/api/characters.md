@@ -85,5 +85,12 @@ ExecuteCommand("rc")
 *  Bandana state you can use this in ohter script to check if player is wearing a bandana on his face using characters bandana commands
 
 ```lua
+---@return boolean
 LocalPlayer.state.IsBandanaOn 
+```
+* Get player is in character shops usefull to disable HUDs
+
+```lua
+---@return boolean
+LocalPlayer.state.PlayerIsInCharacterShops 
 ```
