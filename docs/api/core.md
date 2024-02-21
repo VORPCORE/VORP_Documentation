@@ -92,7 +92,7 @@ local userCharacter = User.getUsedCharacter -- returns character data
 -- functions
 User.SetGroup(group)
 User.getIdentifier()
-User.gtUserCharacters()
+User.getUserCharacters()
 ```
 
 
