@@ -331,7 +331,7 @@ VORPcore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
  local ServerRPC = exports.vorp_core:ServerRpcCall() --[[@as ServerRPC]] -- for intellisense
  -- or call core objcet
  local VORPcore = exports.vorp_core:GetCore()  -- contains callbacks as well
- local ServerRPC = VORPcore
+
 ```
 
 * Trigger Await Callback
@@ -340,7 +340,7 @@ VORPcore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
 ---@param name string callback name
 ---@param source number player source
 ---@vararg ...? any parameters tables strings numbers etc
-local result =  ServerRP.Callback.TriggerAwait(name, source,...)
+local result =  VORPcore.Callback.TriggerAwait(name, source,...)
 print(result)
 ```
 * Trigger Async Callback
@@ -350,7 +350,7 @@ print(result)
 ---@param source number player source
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any  parameters tables strings numbers etc
- ServerRPC.Callback.TriggerAsync(name, source, function(result)
+VORPcore.Callback.TriggerAsync(name, source, function(result)
   print(result)
  end, ...) 
 ```
@@ -359,7 +359,7 @@ print(result)
 --- Register a callback
 ---@param name string callback name
 ---@param callback fun(source:number,callback:fun(cb:any), ...?:any)
- ServerRPC.Callback.Register(name, function(source,callback,...)
+ VORPcore.Callback.Register(name, function(source,callback,...)
    callback(...)
  end) 
 ```
@@ -379,7 +379,6 @@ print(result)
 local ClientRPC = exports.vorp_core:ClientRpcCall() --[[@as ClientRPC]] -- for intellisense
 -- or get core object
 local VORPcore = exports.vorp_core:GetCore()-- contains call backs aswell
-local ClientRPC = VORPcore
 
 ```
 * Trigger Await Callback
@@ -388,7 +387,7 @@ local ClientRPC = VORPcore
 --- Trigger a client callback Asynchronously
 ---@param name string callback name
 ---@vararg ...? any can send as many parameters as you want 
-local result =  ClientRPC.Callback.TriggerAwait(name, ...) 
+local result =  VORPcore.Callback.TriggerAwait(name, ...) 
 ```
 * Trigger Async Callback
 ```lua
@@ -396,7 +395,7 @@ local result =  ClientRPC.Callback.TriggerAwait(name, ...)
 ---@param name string callback name
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any can send as many parameters as you want 
- ClientRPC.Callback.TriggerASync(name, function(result)
+ VORPcore.Callback.TriggerASync(name, function(result)
   print(result)
  end, ...) 
 ```
@@ -405,7 +404,7 @@ local result =  ClientRPC.Callback.TriggerAwait(name, ...)
 ---*Register a callback
 ---@param name string callback name
 ---@param callback fun(callback:fun(result:any), ...?:any) callback function
-ClientRPC.Callback.Register(name, function(callback,...)
+VORPcore.Callback.Register(name, function(callback,...)
  callback(...)
 end)
 ```
