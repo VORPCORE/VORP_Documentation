@@ -395,7 +395,7 @@ local result =  VORPcore.Callback.TriggerAwait(name, ...)
 ---@param name string callback name
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any can send as many parameters as you want 
- VORPcore.Callback.TriggerASync(name, function(result)
+ VORPcore.Callback.TriggerAsync(name, function(result)
   print(result)
  end, ...) 
 ```
