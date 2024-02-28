@@ -44,9 +44,8 @@ we support only **WINDOWS**, **linux** is not officially supported
 
 You have many options when hosting:
 1. Self Hosting, _We do not recommend this for a live server_
-2. Choose a **Windows VPS** to host your server. [`GOOGLE IT`](https://www.google.com/search?q=vps+hosting&rlz=1C1CHBF_enUS820US820&sxsrf=ALiCzsbw4IXfBkhZI3siiolIbxWZaEdH_w%3A1654624249367&ei=-Y-fYsyCFsWD8gKjl5DQDw&ved=0ahUKEwiM4_rU85v4AhXFgVwKHaMLBPoQ4dUDCA4&uact=5&oq=vps+hosting&gs_lcp=Cgdnd3Mtd2l6EAMyBAgAEEMyBAgAEEMyBAgAEEMyBQgAEIAEMgUIABCABDIECAAQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BwgAEEcQsAM6BwgAELADEEM6CggAEOQCELADGAE6EgguEMcBENEDEMgDELADEEMYAjoHCAAQsQMQQzoLCC4QgAQQxwEQrwE6CgguEMcBENEDEENKBAhBGABKBAhGGAFQjwNYlw1g1w5oAXABeACAAV-IAc8EkgEBOJgBAKABAcgBE8ABAdoBBggBEAEYCdoBBggCEAEYCA&sclient=gws-wiz)
+2. Choose a **Windows VPS** to host your server. [`GOOGLE IT`](https://www.google.com)
 
-<small>_Are you a VPS provider intrested to have your vps service here? contact us_</small>
 
 ## INSTALLATION
 
@@ -75,6 +74,7 @@ Edit the **server.cfg** found at 📁``server/server.cfg``
 - Install MariadDB for your databse
 - Install and run   **HeidiSQL** the SQL file  `MariaDB.sql` found in the directory of the [`premade`](https://github.com/VORPCORE/vorp_pre-made) server
 - Create where it says **New** any name you want
+- Add password and user name if you installed with one (password must be placed as well in your server.cfg)
 
 ![image](./public/guide/database.jpg)
 

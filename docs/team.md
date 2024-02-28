@@ -65,14 +65,6 @@ const developers = [
             { icon: 'github', link: 'https://github.com/creativewild' },
         ]
     },
-    {
-        avatar: 'https://avatars.githubusercontent.com/u/79701428?v=4',
-        name: 'Yourgen',
-        title: 'Developer',
-        links: [
-            { icon: 'github', link: 'https://github.com/YourgenAP' },
-        ]
-    }
 ]
 const staff = [
     {
@@ -99,6 +91,15 @@ const staff = [
           {icon: 'github',link: "https://github.com/edrhawk"}
         ]
     },
+    {
+        avatar: 'https://avatars.githubusercontent.com/u/30455052?v=4',
+        name: 'ResDarkMatter',
+        title: 'Support',
+        links: [
+          {icon: 'github',link: "https://github.com/reserect"}
+        ]
+    },
+
 ]
 </script>
 
