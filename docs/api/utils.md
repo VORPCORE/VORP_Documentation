@@ -2220,7 +2220,7 @@ Removes an event from the listener queue, listener will no longer listen once re
 |--|--|
 | listener | object returns from RegisterEventListener |
 
-`VORPutils.Events:RenoveEventListener(listener)`
+`VORPutils.Events:RemoveEventListener(listener)`
 
 Example Usage:
 ```lua
@@ -2239,7 +2239,7 @@ Citizen.CreateThread(function()
 
     Wait(40000)
 
-    VORPutils.Events:RenoveEventListener(listener)
+    VORPutils.Events:RemoveEventListener(listener)
 end)
 ```
 
