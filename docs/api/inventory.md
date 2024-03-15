@@ -314,6 +314,40 @@ exports.vorp_inventory:openInventory(source, invId)
 exports.vorp_inventory:closeInventory(source, invId) 
 ```
 
+## Hooks
+
+<Badge type="tip" text="Server Side Only" />
+
+*  listener event of an item being used, data will be the same as `registerUsableItem`
+```lua
+AddEventHandler("vorp_inventory:Server:OnItemUse",function(data)
+ local source = data.source
+ local itemData = data.item
+end)
+```
+
+## Statebags
+
+
+*  contains data from the current weapon used in the inventory or last weapon used.
+
+<Badge type="tip" text="Client Side" />
+
+```lua
+local data = LocalPlayer.state.GetEquippedWeaponData
+local serial = serialNumber
+local id = weaponId
+```
+
+<Badge type="tip" text="Server Side" />
+
+```lua
+local data = Player(source).state.GetEquippedWeaponData
+local serial = serialNumber
+local id = weaponId
+```
+
+
 ## API DEPRECATED
 
 :::warning

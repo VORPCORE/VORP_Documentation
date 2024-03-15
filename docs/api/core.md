@@ -376,7 +376,7 @@ VORPcore.Callback.TriggerAsync(name, function(result)
 -- top of your client files if you need only call back system
 local ClientRPC = exports.vorp_core:ClientRpcCall() --[[@as ClientRPC]] -- for intellisense
 -- or get core object
-local VORPcore = exports.vorp_core:GetCore()-- contains call backs aswell
+local VORPcore = exports.vorp_core:GetCore()-- contains call backs as well
 
 ```
 * Trigger Await Callback
