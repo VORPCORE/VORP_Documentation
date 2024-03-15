@@ -338,19 +338,17 @@ VORPcore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, 
 ```lua
 --- Trigger a server callback Synchronously
 ---@param name string callback name
----@param source number player source
 ---@vararg ...? any parameters tables strings numbers etc
-local result =  VORPcore.Callback.TriggerAwait(name, source,...)
+local result =  VORPcore.Callback.TriggerAwait(name,...)
 print(result)
 ```
 * Trigger Async Callback
 ```lua
 --- trigger a server callback asynchronously
 ---@param name string callback name
----@param source number player source
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any  parameters tables strings numbers etc
-VORPcore.Callback.TriggerAsync(name, source, function(result)
+VORPcore.Callback.TriggerAsync(name, function(result)
   print(result)
  end, ...) 
 ```
@@ -386,16 +384,18 @@ local VORPcore = exports.vorp_core:GetCore()-- contains call backs aswell
 
 --- Trigger a client callback Asynchronously
 ---@param name string callback name
+---@param source number player source
 ---@vararg ...? any can send as many parameters as you want 
-local result =  VORPcore.Callback.TriggerAwait(name, ...) 
+local result =  VORPcore.Callback.TriggerAwait(name,source, ...) 
 ```
 * Trigger Async Callback
 ```lua
 --- Trigger a client callback Synchronously
 ---@param name string callback name
+---@param source number player source
 ---@param callback fun(result:any) callback function
 ---@vararg ...? any can send as many parameters as you want 
- VORPcore.Callback.TriggerAsync(name, function(result)
+ VORPcore.Callback.TriggerAsync(name, source, function(result)
   print(result)
  end, ...) 
 ```
