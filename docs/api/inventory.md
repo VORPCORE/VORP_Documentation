@@ -322,7 +322,7 @@ exports.vorp_inventory:closeInventory(source, invId)
 ```lua
 AddEventHandler("vorp_inventory:Server:OnItemUse",function(data)
  local source = data.source
- local itemData = data.item
+ local itemName = data.item
 end)
 ```
 
