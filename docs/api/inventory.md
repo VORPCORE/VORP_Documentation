@@ -320,6 +320,26 @@ exports.vorp_inventory:openInventory(source, invId)
 exports.vorp_inventory:closeInventory(source, invId) 
 ```
 
+```lua
+
+local data = {
+  source = source, 
+  target = target, 
+  title = "Search inventory",
+  blacklist = { -- OPTIONAL
+     water = true, -- item name or weapon name
+  },
+  itemsLimit = { -- OPTIONAL
+    weapons = { itemType = "item_weapon", limit = 1 }, -- how many weapons user is allowed to take
+    items =   { itemType = "item_standard", limit = 2 }, -- how many items user is allowed to take
+  },
+  timeout = 60, -- OPTIONAL in seconds , if enabled when user reaches limits then a timeout is applied so player cant steal for that amount of time if removed then   once limit reached only after restart they can steal again
+}
+--- open player inventory
+---@param data table
+exports.vorp_inventory:openPlayerInventory(data)
+```
+
 ## Hooks
 
 <Badge type="tip" text="Server Side Only" />
