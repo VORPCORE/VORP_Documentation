@@ -67,7 +67,7 @@ VORPcore.NotifyLeftRank("title","subtitle","dict","icon",4000,"color")
 local maxChars = VORPcore.maxCharacters 
 
 ```
-### Get User Data
+### Get User Class
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
@@ -91,12 +91,14 @@ local userCharacter = User.getUsedCharacter -- returns character data
 
 -- functions
 User.SetGroup(group)
-User.getIdentifier()
-User.getUserCharacters()
+local steam = User.getIdentifier()
+local data = User.getUserCharacters()
+local warnstatus = User.getPlayerwarnings() 
+
 ```
 
 
-### Character Data 
+### Character Class
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
@@ -126,10 +128,11 @@ Character.age
 Character.gender
 Character.charDescription
 Character.nickname
+Character.invCapacity
 
 ```
 
-### Character functions
+### Character Class functions
 <Badge type="tip" text="Server Side Only" />
 
 * Set `functions`
@@ -157,6 +160,7 @@ Character.setAge(45)
 Character.setCharDescription("string")
 Character.setNickName("string")
 Character.setGender("string")
+Character.updateInvCapacity(1) -- its incremental
 
 ```
 
@@ -175,35 +179,33 @@ VORPcore.instancePlayers(0)
 ```
 
 ### Whitelist
+
 <Badge type="tip" text="Server Side Only" /> 
 
-* get data from white list table
+* get data from whitelist user
 
 ```lua
--- SERVER SIDE ONLY
-local VORPWhitelist = {}
-
-TriggerEvent("getWhitelistTables", function(cb)
-    VORPWhitelist = cb
-end)
-
-
--- userStaticID this is a static ID used to whitelist/unwhitelist or ban/unban
--- needs identifier
-local getid = VORPwl.getEntry(identifier).getId() 
-
--- whitelisted returns true or false
--- needs identifier
-local getstatus = VORPwl.getEntry(identifier).getStatus() 
-
---get players warnings
--- use the API core to get source data
-local User = VORPcore.getUser(_source)
-local warnstatus = User.getPlayerwarnings() 
-
+--- get whitelist data
+---@param identifier string
+local data = VORPcore.getEntry(identifier)
+print(json.encode(data),{ident = true})
 ```
 
+```lua
+--- whitelisted user
+---@param identifier string
+VORPcore.whitelistUser(identifier)
+```
+
+```lua
+--- remove from whitelist
+---@param identifer string
+ VORPcore.unWhitelistUser(identifier)
+```
+
+
 ### AUTO DB updater 
+
 <Badge type="tip" text="Server Side Only" />
 
 * you can use this API to create tables or add columns to DB instead of an sql file or for future updates

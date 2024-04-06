@@ -342,7 +342,7 @@ exports.vorp_inventory:openPlayerInventory(data)
 
 ## Hooks
 
-<Badge type="tip" text="Server Side Only" />
+<Badge type="tip" text="Server Side Only"/>
 
 *  listener event of an item being used, data will be the same as `registerUsableItem`
 ```lua
@@ -352,6 +352,26 @@ AddEventHandler("vorp_inventory:Server:OnItemUse",function(data)
 end)
 ```
 
+## Listeners
+
+<Badge type="tip" text="Server Side Only"/>
+
+- Listen to when an item is created in player inventory
+
+```lua
+AddEventHandler("vorp_inventory:Server:OnItemCreated",function(data)
+ local source = data.source
+  print(json.encode(data),{ident = true})
+end)
+```
+- Listen to when an item is removed from player inventory
+
+```lua
+AddEventHandler("vorp_inventory:Server:OnItemRemoved",function(data)
+ local source = data.source
+  print(json.encode(data),{ident = true})
+end)
+```
 ## Statebags
 
 
