@@ -413,7 +413,11 @@ end)
 
 ## Event Listners
 
-### Server
+
+- player job and group change these events are triggered
+
+<Badge type="tip" text="SERVER" />
+
 ```lua
 -- group changed
 AddEventHandler("vorp:playerGroupChange",function(source, group)
@@ -424,8 +428,46 @@ end)
 -- job grade changed
 AddEventHandler("vorp:playerJobGradeChange",function(source, jobgrade)
 end) 
+```
+
+<Badge type="tip" text="SHARED" />
+
+- player dies this event is triggered
+
+```lua
+--CLIENT
+AddEventHandler("vorp_core:Server:OnPlayerDeath",function()
+end)
+
+--SERVER
+RegisterNetEvent("vorp_core:Server:OnPlayerDeath",function()
+end)
+```
+-  player is revived through vorp core this event is triggered
+
+```lua
+--CLIENT
+AddEventHandler("vorp_core:Server:OnPlayerRevive",function()
+end)
+
+--SERVER
+RegisterNetEvent("vorp_core:Server:OnPlayerRevive",function()
+end)
 
 ```
+- player respawns through vorp core this event is triggered
+
+```lua
+--CLIENT
+AddEventHandler("vorp:PlayerForceRespawn",function()
+end)
+
+--SERVER
+RegisterNetEvent("vorp:PlayerForceRespawn",function()
+end)
+
+```
+
 ## Data View
 
 ### Client
