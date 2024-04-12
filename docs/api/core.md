@@ -187,20 +187,20 @@ VORPcore.instancePlayers(0)
 ```lua
 --- get whitelist data
 ---@param identifier string
-local data = VORPcore.getEntry(identifier)
+local data = VORPcore.Whitelist.getEntry(identifier)
 print(json.encode(data),{ident = true})
 ```
 
 ```lua
 --- whitelisted user
 ---@param identifier string
-VORPcore.whitelistUser(identifier)
+VORPcore.Whitelist.whitelistUser(identifier)
 ```
 
 ```lua
 --- remove from whitelist
 ---@param identifer string
- VORPcore.unWhitelistUser(identifier)
+ VORPcore.Whitelist.unWhitelistUser(identifier)
 ```
 
 
