@@ -147,7 +147,7 @@ exports.vorp_inventory:getItem(source, item,callback, metadata)
 ---@param source number player id
 ---@param amount number amount of weapons
 ---@param callback fun(canCarry: boolean)? callback function sync or async
----@param weaponName string weapon name
+---@param weaponName string | number? weapon name or hash
 ---@return boolean
 exports.vorp_inventory:canCarryWeapons(source, amount,callback, weaponName) 
 ```
