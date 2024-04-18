@@ -436,7 +436,7 @@ end)
 
 ```lua
 --CLIENT
-AddEventHandler("vorp_core:Server:OnPlayerDeath",function()
+AddEventHandler("vorp_core:Client:OnPlayerDeath",function()
 end)
 
 --SERVER
@@ -447,7 +447,7 @@ end)
 
 ```lua
 --CLIENT
-AddEventHandler("vorp_core:Server:OnPlayerRevive",function()
+AddEventHandler("vorp_core:Client:OnPlayerRevive",function()
 end)
 
 --SERVER
