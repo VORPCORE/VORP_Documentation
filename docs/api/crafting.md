@@ -1,19 +1,17 @@
 # VORP Crafting
 
-## What is this?
-A script for crafting items in game. Bellow are API's for this script
-
-
-## API Docs
+- from other scripts you can trigger these events
 
 ### Add Recipe
 
-Add recipe to crafting
+Add recipe to crafting 
+
+<Badge type="tip" text="CLIENT SIDE"/>
   
   Example Usage:
 ```lua
-
- TriggerEvent('vorp:AddRecipes', {
+ local param = false -- if true will send to all players if false only the source updates
+ TriggerClientEvent('vorp:AddRecipes', {
         Text = "Seasoned Small Game ",
         SubText = "InvMax = 10",
         Desc = "Recipe: 1 x SGM, 1 x Salt",
@@ -40,7 +38,7 @@ Add recipe to crafting
         CurrencyType = 0,
         Category = "food",
         Animation = 'knifecooking'
-    })
+    },param)
 ```
 
 ### Remove Recipe
@@ -49,9 +47,10 @@ Remove recipe to crafting
   
   Example Usage:
 ```lua
-    TriggerEvent('vorp:RemoveRecipes', {
-         Text = "Seasoned Small Game "
-    })
+local param = false -- if true will send to all players if false only the source gets updated on the client side
+    TriggerClientEvent('vorp:RemoveRecipes', {
+        Text = "Seasoned Small Game "
+    },param)
 ```
 
 ### Add Crafting Location
@@ -60,7 +59,8 @@ Add Crafting Location to crafting
   
   Example Usage:
 ```lua
-    TriggerEvent('vorp:AddCraftLocation', {
+    local param = false --  if true will send to all players if false only the source gets updated on the client side
+    TriggerClientEvent('vorp:AddCraftLocation', {
         name = 'Blackwater Crafting Station',
         id = 'blackwater',
         Job = 0
@@ -72,7 +72,7 @@ Add Crafting Location to crafting
             Hash = 1754365229
         },
         Categories = 0
-    })
+    },param)
 ```
 
 ### Remove Crafting Location
@@ -81,7 +81,8 @@ Remove Crafting Location to crafting
   
   Example Usage:
 ```lua
-    TriggerEvent('vorp:RemoveCraftLocation', {
+  local param = false --  if true will send to all players if false only the source gets updated on the client side
+    TriggerClientEvent('vorp:RemoveCraftLocation', {
         name = 'Blackwater Crafting Station',
         id = 'blackwater',
         Job = 0
@@ -93,5 +94,5 @@ Remove Crafting Location to crafting
             Hash = 1754365229
         },
         Categories = 0
-    })
+    },param)
 ```
