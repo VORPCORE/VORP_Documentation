@@ -375,8 +375,8 @@ end)
 ```lua
 local key = string.format("GetEquippedWeaponData_%d",weaponHash)
 local data = LocalPlayer.state[key]
-local serial = serialNumber
-local id = weaponId
+local serial = data.serialNumber
+local id = data.weaponId
 ```
 
 <Badge type="tip" text="Server Side" />
@@ -384,8 +384,8 @@ local id = weaponId
 ```lua
 local key = string.format("GetEquippedWeaponData_%d",weaponHash)
 local data = Player(source).state[key]
-local serial = serialNumber
-local id = weaponId
+local serial = data.serialNumber
+local id = data.weaponId
 ```
 
 
