@@ -60,7 +60,7 @@ Edit the **server.cfg** found at 📁``server/server.cfg``
 > You **MUST** edit this for your server to work.
 ```lua
  sv_licenseKey ""
- steam_webApiKey ""
+ set steam_webApiKey ""
  sv_hostname "my server" 
  sv_projectDesc "my project"
  sv_maxclients 48 --with onesync on 
