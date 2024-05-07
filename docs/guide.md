@@ -57,10 +57,13 @@ You have many options when hosting:
 
 Edit the **server.cfg** found at 📁``server/server.cfg``
 
-> You **MUST** edit this for your server to work.
+:::warning
+ You **MUST** edit these for your server to work you can find how by looking at the file mentioned above.
+:::
+
 ```lua
  sv_licenseKey ""
- set steam_webApiKey ""
+ set steam_webApiKey "" -- this is required for vorp
  sv_hostname "my server" 
  sv_projectDesc "my project"
  sv_maxclients 48 --with onesync on 
@@ -69,7 +72,6 @@ Edit the **server.cfg** found at 📁``server/server.cfg``
 
 ### Permissions & TX Admin
 ---
-
 
 - Install MariadDB for your databse
 - Install and run   **HeidiSQL** the SQL file  `MariaDB.sql` found in the directory of the [`premade`](https://github.com/VORPCORE/vorp_pre-made) server
