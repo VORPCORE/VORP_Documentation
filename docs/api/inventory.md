@@ -13,7 +13,7 @@ vorp Inventory provide a custom API that allow you to interact with items as wel
 
 ```lua
 --- check item limit and inv limit in one function
----@param source number player id
+---@param source integer player id
 ---@param item string item name
 ---@param amount number amount of item
 ---@param callback fun(canCarry:boolean)? callback function sync or async
@@ -23,7 +23,7 @@ exports.vorp_inventory:canCarryItem(source, item, amount, callback)
 ```lua
 ---@alias itemdata {id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean}
 --- gets user inventory items
----@param source number player id
+---@param source integer player id
 ---@param callback fun(itemdata:table)? callback function sync or async
 ---@return table
 exports.vorp_inventory:getUserInventoryItems(source, callback) 
@@ -37,7 +37,7 @@ exports.vorp_inventory:registerUsableItem(item, callback)
 ```
 ```lua
 --- get item amount (syncrounous)
----@param source number player id
+---@param source integer player id
 ---@param callback func(itemCount: number)? callback function sync leave nil or async add func
 ---@param item string item name
 ---@param metadata table item metadata
@@ -46,7 +46,7 @@ exports.vorp_inventory:getItemCount(source, callback, item,metadata)
 ```
 ```lua
 --- get item amount by name
----@param source number player id
+---@param source integer player id
 ---@param item string item name
 ---@param callback fun(item:table)? callback function sync or async
 ---@return table item data
@@ -54,7 +54,7 @@ exports.vorp_inventory:getItemByName(source, item, callback)
 ```
 ```lua
 --- get item containing metadata
----@param source number player id
+---@param source integer player id
 ---@param item string item name
 ---@param metadata table item metadata
 ---@param callback fun(item:table)? callback function sync or async
@@ -63,7 +63,7 @@ exports.vorp_inventory:getItemContainingMetadata(source, item, metadata, callbac
 ```
 ```lua
 --- get item matching metdata
----@param source number player id
+---@param source integer player id
 ---@param slot number slot id
 ---@param metadata table item metadata
 ---@param callback fun(item:table)? callback function sync or async
@@ -80,7 +80,7 @@ exports.vorp_inventory:getItemDB(item, callback)
 
 ```lua
 --- add item to user
----@param source number player id
+---@param source integer player id
 ---@param item string item name
 ---@param amount number amount of item
 ---@param callback fun(boolean:boolean)? callback function sync or async
@@ -91,7 +91,7 @@ exports.vorp_inventory:addItem(source, item, amount, metadata,callback)
 ```lua
 ---@alias itemdata {id:number, label:string, name:string, metadata:table, group:number, type:string, count:number, limit:number,canUse:boolean}
 --- get item by main id
----@param source number player id
+---@param source integer player id
 ---@param mainid number main id
 ---@param callback fun(itemdata:table)? callback function sync or async
 ---@return table item data
@@ -99,7 +99,7 @@ exports.vorp_inventory:getItemByMainId(source, mainid, callback)
 ```
 ```lua
 --- sun item by item id
----@param source number player id
+---@param source integer player id
 ---@param id number item id
 ---@param callback fun(boolean:boolean)? callback function sync or async
 ---@return boolean if async
@@ -107,7 +107,7 @@ exports.vorp_inventory:subItemID(source, id, callback)
 ```
 ```lua
 --- sub item
----@param source number player id
+---@param source integer player id
 ---@param item string item name
 ---@param amount number amount of item
 ---@param metadata table item metadata
@@ -117,7 +117,7 @@ exports.vorp_inventory:subItem(source, item, amount, metadata, callback)
 ```
 ```lua
 --- set item metadata
----@param source number player id
+---@param source integer player id
 ---@param itemId number item id
 ---@param metadata table{ metadata:table, description:string?} if description not defined it will use default description
 ---@param amount number amount of item
@@ -127,7 +127,7 @@ exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callbac
 ```
 ```lua
 --- get item data
----@param source number player id
+---@param source integer player id
 ---@param item string item name
 ---@param callback fun(item:table)|nil callback function sync or asyn
 ---@param metadata table? item metadatac
@@ -135,9 +135,18 @@ exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callbac
 exports.vorp_inventory:getItem(source, item,callback, metadata) 
 ```
 ## Weapon exports
+
+```lua
+--- get all user ammo
+---@param player integer source
+---@param cb fun(ammo: table)? async or sync callback
+---@return table
+exports.vorp_inventory:getUserAmmo(source)
+```
+
 ```lua
 --- can carry weapons
----@param source number player id
+---@param source integer player id
 ---@param amount number amount of weapons
 ---@param callback fun(canCarry: boolean)? callback function sync or async
 ---@param weaponName string | number? weapon name or hash
@@ -147,7 +156,7 @@ exports.vorp_inventory:canCarryWeapons(source, amount,callback, weaponName)
 ```lua
 ---@alias weapondata {id:number,name:string,propietary:string,used:boolean,desc:string,group:number,source:number,label:string,serial_number:string,custom_label:string,custom_desc:string}
 --- get user inventory weapon
----@param source number player id
+---@param source integer player id
 ---@param callback fun(weapondata:table)? callback function sync or async
 ---@param weaponId number weapon id
 ---@return table weapondata
@@ -156,14 +165,14 @@ exports.vorp_inventory:getUserWeapon(source, callback,weaponId)
 ```lua
 ---@alias weapondata {id:number,name:string,propietary:string,used:boolean,desc:string,group:number,source:number,label:string,serial_number:string,custom_label:string,custom_desc:string}
 --- get user inventory weapons
----@param source number player id
+---@param source integer player id
 ---@param callback fun(weapondata:table)? callback function sync or async
 ---@return table weapondata
 exports.vorp_inventory:getUserInventoryWeapons(source, callback) 
 ```
 ```lua
 --- get weapon bullets
----@param source number player id
+---@param source integer player id
 ---@param weaponID number weapon id
 ---@param callback fun(ammo:number)? callback function sync or async
 ---@return number weapon ammo
@@ -171,12 +180,12 @@ exports.vorp_inventory:getWeaponBullets(source,weaponID, callback)
 ```
 ```lua
 --- remove all user ammo
----@param source number player id
+---@param source integer player id
 exports.vorp_inventory:removeAllUserAmmo(source) 
 ```
 ```lua
 --- add bullets
----@param source number player id
+---@param source integer player id
 ---@param bulletType string bullet type
 ---@param amount number amount of bullets
 ---@param callback fun(ammo:boolean)? callback function sync or async
@@ -194,7 +203,7 @@ exports.vorp_inventory:subBullets(weaponId, bulletType, amount,callback)
 ```
 ```lua
 --- get wweapon components
----@param source number player id
+---@param source integer player id
 ---@param weaponId number weapon id
 ---@param callback fun(components:table)? callback function sync or async
 ---@return table
@@ -202,7 +211,7 @@ exports.vorp_inventory:getWeaponComponents(source, weaponId, callback)
 ```
 ```lua
 --- delete weapon
----@param source number player id
+---@param source integer player id
 ---@param weaponId number weapon id
 ---@param callback fun(boolean:boolean)? callback function sync or async
 ---@return boolean if async
@@ -210,7 +219,7 @@ exports.vorp_inventory:deleteWeapon(source, weaponId, callback)
 ```
 ```lua
 --- createWeapon
----@param source number player id
+---@param source integer player id
 ---@param weaponName string weapon name
 ---@param ammo string amount of ammo
 ---@param components table weapon components
@@ -225,7 +234,7 @@ exports.vorp_inventory:createWeapon(source, weaponName, ammo, components, comps,
 
 ```lua
 --- give weapon
----@param source number player id
+---@param source integer player id
 ---@param weaponId number weapon id
 ---@param target number target id
 ---@param callback fun(boolean:boolean)? callback function sync or async
@@ -234,7 +243,7 @@ exports.vorp_inventory:giveWeapon(source, weaponId, target,callback)
 ```
 ```lua
 --- sub weapon
----@param source number player id
+---@param source integer player id
 ---@param weaponId number weapon id
 ---@param callback fun(boolean:boolean)? callback function sync or async
 ---@return boolean if async
@@ -302,13 +311,13 @@ exports.vorp_inventory:setCustomInventoryWeaponLimit(invId, weapon, limit)
 ```
 ```lua
 --- open inventory main or secondary
----@param source number player id
+---@param source integer player id
 ---@param invId string? inventory id
 exports.vorp_inventory:openInventory(source, invId) 
 ```
 ```lua
 --- close inventory main or secondary
----@param source number player id
+---@param source integer player id
 ---@param invId string? inventory id
 exports.vorp_inventory:closeInventory(source, invId) 
 ```
@@ -393,7 +402,7 @@ local id = data.weaponId
 
 ```lua
 --- this fexport got deprecated due to the switch to weight
----@param source number player id
+---@param source integer player id
 ---@param amount number amount of item
 ---@param callback fun(canCarry:boolean)? callback function sync or async
 ---@return boolean
