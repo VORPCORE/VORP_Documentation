@@ -87,8 +87,11 @@ Edit the **server.cfg** found at 📁``server/server.cfg``
 - **Ignore the warnings!**
 
 
-- Start `FXServer.exe` and it will open a web browser to install **TX admin** follow the options. and your server should start
-
+- Start `FXServer.exe` and it will open a web browser to install **TX admin** follow the options. and your server should start.
+- set onesync to infinity in txAdmin settings fxserver options.
+- look for any vorp scripts that need to be updated in the console and update them.
+- make sure your steam web api key was added to server.cfg without that you cant join the server.
+- open  ports to 30120 in your firewall inbound rules TCP UDP to allow players to join your server.
 
 ![image](./public/guide/fxserver.jpg)
 
