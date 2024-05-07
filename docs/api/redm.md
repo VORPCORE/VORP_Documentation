@@ -2,11 +2,11 @@
 
 * Contains objects peds vehicles in images also natives
 
-[`Red Lookup`](https://redlookup.com/)
+[`RedM objects preview`](https://rdr2.mooshe.tv/hashes/)
 
 * offical Natives Website
 
-[`Vespura natives`](https://vespura.com/doc/natives/)
+[`Vespura natives`](https://rdr3natives.github.io/)
 
 * RDR3 discoveries  almost everything you need to develop your resources
 
