@@ -249,6 +249,32 @@ exports.vorp_inventory:giveWeapon(source, weaponId, target,callback)
 ---@return boolean if async
 exports.vorp_inventory:subWeapon(source, weaponId,callback) 
 ```
+
+```lua
+--- set serial number to weapon 
+---@param weaponid integer weapon id
+---@param serial string  weapon serial no
+---@param callback fun(boolean:boolean)? callback function sync or async
+---@return boolean
+exports.vorp_inventory:setWeaponSerialNumber(weaponid,serial,callback) 
+```
+```lua
+--- set custom labels
+---@param weaponId number  weapon id
+---@param label string  weapon label
+---@param cb fun(success: boolean)? async or sync callback
+---@return boolean
+exports.vorp_inventory:setWeaponCustomLabel(weaponId, label, cb)
+```
+```lua
+--- set custom desc
+---@param weaponId number weapon id
+---@param desc string weapon desc
+---@param cb fun(success: boolean)? callback function sync or async
+---@return boolean
+exports.vorp_inventory:setWeaponCustomDesc(weaponId, desc, cb)
+```
+
 ## Inventory exports
 
 ```lua

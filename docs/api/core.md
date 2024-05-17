@@ -9,7 +9,6 @@ local VORPcore = exports.vorp_core:GetCore() -- NEW includes  new callback syste
 ```lua
     -- from server side
     TriggerClientEvent("vorp:showUi", _source, false) --hide
-
     -- from client side
     TriggerEvent("vorp:showUi", true) --show
 
