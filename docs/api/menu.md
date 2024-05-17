@@ -6,31 +6,24 @@
 
 ```lua
 -- on the top of your client side
-local VORPMenu = {} -- local 
-
-TriggerEvent("vorp_menu:getData",function(cb)
- VORPMenu = cb
-end)
+local Menu = exports.vorp_menu:GetMenuData()
 ```
 
 * API
 
 ```lua
--- close all menus before opening another 
----@type function
-VORPMenu.CloseAll()
-
+-- close all menus
+Menu.CloseAll()
 ```
 
 * Create Menu
 
 ```lua
--- function or event
+
 function OpenMenu(any,any)
 
- VORPMenu.CloseAll()
+ Menu.CloseAll()
 
-   -- * table * --
     MenuElements = {
         -- * elements * --
         -- by default you need to set these 3
@@ -81,8 +74,8 @@ function OpenMenu(any,any)
     }
  
  -- * open menu * --
-
-    VORPMenu.Open("default",GetCurrentResourceName(),"vorp_menu_OpenMenu", -- unique namespace
+ 
+    Menu.Open("default",GetCurrentResourceName(),"vorp_menu_OpenMenu", -- unique namespace
 
     {
         title = "menu title",
