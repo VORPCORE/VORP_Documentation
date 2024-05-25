@@ -36,45 +36,23 @@ AddEventHandler("vorp:initNewCharacter", function()
 end)
 ```
 
-### Get Characters Clothes and Skin (Client)
-> This gives you the players clothes and skin from the client side. It comes from the client cache.
+### Get Characters Clothes and Skin
 
 <Badge type="warning" text="Client Side Only" /> 
 
-```lua
-
-TriggerEvent("vorpcharacter:getPlayerComps", _source, function(skin, cloths)
-    local beard = skin.Beard -- Beard is in the database 
-	local hat = cloths.Hat -- Hat is in the database
-end)
-```
-
-### Set a Character component (Server)
-> This sets one component of the player skin and saves it in the database. This comes from the server side.
-
-<Badge type="tip" text="Server Side Only" />
+> gets all components in cache
 
 ```lua
-
-local CompHash = "component hash"
-TriggerEvent("vorpcharacter:setPlayerSkinChange", _source, "Beard", CompHash)
+local result = exports.vorp_character:GetAllPlayerComponents()
 ```
-
-### Get Players Clothes and Skin (Client)
-> This sets one component of the player clothes and saves it in the database. This comes from the client side.
-
-<Badge type="warning" text="Client Side Only" /> 
-
+> get single component
 ```lua
-local CompHash = "component hash"
-
-TriggerServerEvent("vorpcharacter:setPlayerSkinChange", "Hat", CompHash)
+---@param CompHash number
+exports.vorp_character:GetPlayerComponent(CompHash)
 ```
 
-### Refresh Character Skin (Client)
+### Refresh Character Skin 
 >This refreshes the player skin that is saved in the client cache
-
-<Badge type="warning" text="Client Side Only" /> 
 
 ```lua
 ExecuteCommand("rc")
