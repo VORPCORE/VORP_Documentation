@@ -5,13 +5,13 @@
 local VORPcore = exports.vorp_core:GetCore() -- NEW includes  new callback system
 ```
 ### CORE UI
-
+- SERVER
 ```lua
-    -- from server side
     TriggerClientEvent("vorp:showUi", _source, false) --hide
-    -- from client side
+```
+- CLIENT
+```lua
     TriggerEvent("vorp:showUi", true) --show
-
 ```
 
 ###  Notifications
@@ -34,13 +34,11 @@ VORPcore.NotifyDead("title","audioref","audioname",4000)
 VORPcore.NotifyUpdate("title","subtitle",4000)
 VORPcore.NotifyWarning("title","subtitle","audioref","audioname",4000)
 VORPcore.NotifyLeftRank("title","subtitle","dict","icon",4000,"color")
-
 ```
 
 * SERVER
 
 ```lua
-   
  VORPcore.NotifyTip(_source,"title",4000)
  VORPcore.NotifyLeft(_source,"title","subtitle","dict","icon",4000,"color")
  VORPcore.NotifyRightTip(_source,"title",4000)
@@ -55,45 +53,60 @@ VORPcore.NotifyLeftRank("title","subtitle","dict","icon",4000,"color")
  VORPcore.NotifyUpdate(_source,"title","subtitle",4000)
  VORPcore.NotifyWarning(_source,"title","subtitle","audioref","audioname",4000)
  VORPcore.NotifyLeftRank(_source,"title","subtitle","dict","icon",4000,"color")
-
 ```
 
 ### Get Max Characters
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
--- this returns a number from vorp core config
+---@return integer amount of characters from config
 local maxChars = VORPcore.maxCharacters 
-
 ```
-### Get User Class
+### User Class
 <Badge type="tip" text="Server Side Only" />
 
+
 ```lua
----contains functions and information from source
+---contains functions and information of the source
 ---@param source number
 ---@return table | func 
-function VORPcore.getUser(source) end
+local user = VORPcore.getUser(source) --[[@as User]]
 ```
 ```lua
 ---@param charid number
 ---@return table user data 
-function VORPcore.getUserByCharId(charid) end
+local user = VORPcore.getUserByCharId(charid) --[[@as User]]
 ```
 
 ```lua
-local User = VORPcore.getUser(source) 
-local UserGroup = User.getGroup --Returns user group (not character group)
+---@return string user group (not character group)
+local UserGroup = User.getGroup 
+```
+```lua
+---@return number user hours if enabled
 local UserHours = User.hours
+```
+```lua
+---@return integer user source
 local userSource = User.source
-local userCharacter = User.getUsedCharacter -- returns character data
+```
+- functions 
 
--- functions
-User.SetGroup(group)
-local steam = User.getIdentifier()
-local data = User.getUserCharacters()
-local warnstatus = User.getPlayerwarnings() 
-
+```lua
+---@param string group
+user.SetGroup(group)
+```
+```lua
+---@return number steam id
+local steam = user.getIdentifier()
+```
+```lua
+---@return table all user characters
+local data = user.getUserCharacters()
+```
+```lua
+---@return number warning
+local warnstatus = user.getPlayerwarnings() 
 ```
 
 
@@ -101,87 +114,82 @@ local warnstatus = User.getPlayerwarnings()
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
--- contains functions and information from source
-local Character = VORPcore.getUser(source).getUsedCharacter 
-
---Data you can get
-Character.identifier
-Character.charIdentifier
-Character.group
-Character.job
-Character.jobGrade
-Character.jobLabel
-Character.money
-Character.gold
-Character.rol
-Character.xp
-Character.firstname
-Character.lastname
-Character.status
-Character.coords
-Character.isdead
-Character.skin
-Character.comps
-Character.compTints
-Character.age
-Character.gender
-Character.charDescription
-Character.nickname
-Character.invCapacity
-
+local user = VORPcore.getUser(source)
+if not user then return end
+local character = user.getUsedCharacter --[[@as Character]]
 ```
-
-### Character Class functions
-<Badge type="tip" text="Server Side Only" />
-
-* Set `functions`
+- Getters
+```lua
+character.identifier
+character.charIdentifier
+character.group
+character.job
+character.jobGrade
+character.jobLabel
+character.money
+character.gold
+character.rol
+character.xp
+character.firstname
+character.lastname
+character.status
+character.coords
+character.isdead
+character.skin
+character.comps
+character.compTints
+character.age
+character.gender
+character.charDescription
+character.nickname
+character.invCapacity
+```
+- Setters
 
 ```lua
-
-local Character = VORPcore.getUser(_source).getUsedCharacter
-
-Character.setJob("miner")
-Character.setJobGrade(1)
-Character.setJobLabel("Miner")
-Character.setGroup("admin")
-Character.setRol(1000)
-Character.setXp(5000)
-Character.setFirstname("Sadie")
-Character.setLastname("Adler")
-Character.updateSkin("need comps in json")
-Character.updateComps("need comps in json")
-Character.updateCompTints("need comps in json")
-Character.addCurrency(0, 1000) -- Add money 1000 | 0 = money, 1 = gold, 2 = rol
-Character.removeCurrency(0, 1000) -- Remove money 1000 | 0 = money, 1 = gold, 2 = rol
-Character.addXp(100)
-Character.removeXp(100)
-Character.setAge(45)
-Character.setCharDescription("string")
-Character.setNickName("string")
-Character.setGender("string")
-Character.updateInvCapacity(1) -- its incremental
-
+character.setJob("miner",flag) -- if flag is true then event job changhe wont be triggered
+character.setJobGrade(1,flag)
+character.setJobLabel("Miner")
+character.setGroup("admin",falg)
+character.setRol(1000)
+character.setXp(5000)
+character.setFirstname("Sadie")
+character.setLastname("Adler")
+character.updateSkin("need comps in json")
+character.updateComps("need comps in json")
+character.updateCompTints("need comps in json")
+character.addCurrency(0, 1000) -- Add money 1000 | 0 = money, 1 = gold, 2 = rol
+character.removeCurrency(0, 1000) -- Remove money 1000 | 0 = money, 1 = gold, 2 = rol
+character.addXp(100)
+character.removeXp(100)
+character.setAge(45)
+character.setCharDescription("string")
+character.setNickName("string")
+character.setGender("string")
+character.updateInvCapacity(1) -- its incremental
 ```
 
-### Instance Players uising routing buckets
+### Instance routing buckets
 <Badge type="warning" text="Client Side Only" /> 
+
+- add
 
 ```lua
 -- to add a players to different instances use his server id + instance number
 -- to add players to same instance use only the instanceNumber
 local instanceNumber = 54123 -- any number
 VORPcore.instancePlayers(tonumber(GetPlayerServerId(PlayerId()))+ instanceNumber)
-
--- to remove the player from instance
+```
+- remove
+```lua
 VORPcore.instancePlayers(0) 
-
 ```
 
 ### Whitelist
 
 <Badge type="tip" text="Server Side Only" /> 
 
-* get data from whitelist user
+- Getters
 
 ```lua
 --- get whitelist data
@@ -189,7 +197,7 @@ VORPcore.instancePlayers(0)
 local data = VORPcore.Whitelist.getEntry(identifier)
 print(json.encode(data),{ident = true})
 ```
-
+- Setters
 ```lua
 --- whitelisted user
 ---@param identifier string
@@ -301,7 +309,8 @@ end)
 
 ```
 ### Webhooks
-* Send a message from your `client` or `server` side  to a webhook to your discord
+
+<Badge type="tip" text="Shared" />
 
 ```lua
 ---@param title string 
@@ -500,39 +509,4 @@ LocalPlayer.state.Character.Gender
 LocalPlayer.state.Character.CharDescription
 LocalPlayer.state.Character.Money
 LocalPlayer.state.Character.Gold
-```
-
-## Deprecated
-
-:::warning
-this will be removed from the docs use the above from now on as its the only supported callbacks they will still work ofc.
-:::
-
-```lua
--- at the top of your server file or client 
-local VORPcore = {} -- core object
-
-TriggerEvent("getCore", function(core)
-    VORPcore = core
-end)
-
-```
-
-* CLIENT
-```lua
- --- Trigger Rpc callback
- ---@param name string callback name
- ---@param callback fun(result:any) result 
- ---@param args? any extra arguments
- VORPcore.RpcCall(name,function(result) -- asynchronous 
-   print(result)
- end,args) -- you can send extra arguments 
-```
-* SERVER
-```lua
----@param name string callback name
----@param callback fun(source:number, cb: fun(any), args:any)
-VORPcore.addRpcCallback("RPCcallbackname", function(source, cb, args) 
-  return cb(any) 
-end)
 ```
