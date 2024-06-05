@@ -149,7 +149,7 @@ exports.vorp_inventory:getUserAmmo(source)
 ---@param source integer player id
 ---@param amount number amount of weapons
 ---@param callback fun(canCarry: boolean)? callback function sync or async
----@param weaponName string | number? weapon name or hash
+---@param weaponName string | number weapon name or hash its needed to check weight since 3.6
 ---@return boolean
 exports.vorp_inventory:canCarryWeapons(source, amount,callback, weaponName) 
 ```
