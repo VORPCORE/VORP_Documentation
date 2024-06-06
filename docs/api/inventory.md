@@ -287,9 +287,10 @@ exports.vorp_inventory:isCustomInventoryRegistered(id, callback)
 
 ```lua
 --- register custom inventory
----@param data { id:string, name:string, limit:number, acceptWeapons:boolean, shared:boolean, ignoreItemStackLimit:boolean, whitelistItems:boolean, UsePermissions:boolean, UseBlackList:boolean, whitelistWeapons:boolean }
+---@param data { id:string, name:string, limit:number, acceptWeapons:boolean, shared:boolean, ignoreItemStackLimit:boolean, whitelistItems:boolean, UsePermissions:boolean, UseBlackList:boolean, whitelistWeapons:boolean,webhook:string }
+---@return methods see modules/custominventory.lua
 exports.vorp_inventory:registerInventory(data)
- ```
+```
 ```lua
 --- add permissions to move item to inventory
 ---@param invId string inventory id
