@@ -45,10 +45,12 @@ end)
 ```lua
 local result = exports.vorp_character:GetAllPlayerComponents()
 ```
+
 > get single component
+
 ```lua
----@param CompHash number
-exports.vorp_character:GetPlayerComponent(CompHash)
+---@param category 
+local result = exports.vorp_character:GetPlayerComponent(category)
 ```
 
 ### Refresh Character Skin 
