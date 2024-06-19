@@ -166,7 +166,7 @@ character.setAge(45)
 character.setCharDescription("string")
 character.setNickName("string")
 character.setGender("string")
-character.updateInvCapacity(1) -- its incremental
+character.updateInvCapacity(1) -- 35 + 1 or  35 - 1 its incremental 
 ```
 
 ### Instance routing buckets
@@ -509,4 +509,29 @@ LocalPlayer.state.Character.Gender
 LocalPlayer.state.Character.CharDescription
 LocalPlayer.state.Character.Money
 LocalPlayer.state.Character.Gold
+```
+
+## Version
+
+- Use vorp version check with change logs feature
+
+```lua
+--- add this in your fxmanifest
+
+-- version must match version.file
+version '0.0.1'
+-- check version
+vorp_checker 'yes'
+-- can use color codes ^1
+vorp_name '^5your resource name ^4version Check^3' 
+-- path to the github repository, in here it must have a version.file file type where your change logs will be
+vorp_github 'https://github.com/repository/resource_name' 
+
+--example
+<0.0.1> -- version must be the same in fxmanifest
+- new version
+- added feature
+- removed feature
+- fixed something
+--
 ```
