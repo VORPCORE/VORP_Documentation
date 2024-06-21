@@ -64,11 +64,11 @@ exports.vorp_inventory:getItemContainingMetadata(source, item, metadata, callbac
 ```lua
 --- get item matching metdata
 ---@param source integer player id
----@param slot number slot id
+---@param item string item name
 ---@param metadata table item metadata
 ---@param callback fun(item:table)? callback function sync or async
 ---@return table item data
-exports.vorp_inventory:getItemMatchingMetadata(source, slot, metadata, callback) 
+exports.vorp_inventory:getItemMatchingMetadata(source, item, metadata, callback) 
 ```
 ```lua
 --- get DB item
