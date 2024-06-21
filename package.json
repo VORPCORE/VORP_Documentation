@@ -8,7 +8,7 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
-  "author": "bytesizd",
+  "author": "vorp",
   "license": "ISC",
   "dependencies": {
     "@google-translate-select/vue3": "^0.1.1",

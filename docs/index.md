@@ -8,14 +8,17 @@ hero:
   image:
     src: /logo.png
     alt: VorpCore logo
-  tagline: Made by the community on their free time to create RedM roleplay servers based on the RDR2 game
+  tagline: Community based, active, maintained , made for free for the creation of Cfx.re game servers based on RDR2 game.
   actions:
     - theme: brand
-      text: Get Started
+      text: Guide
       link: /guide
     - theme: alt
-      text: View on GitHub
+      text: GitHub
       link: https://github.com/VORPCORE
+    - theme: brand
+      text: Docs
+      link: /api 
 
 # Features section
 features:
