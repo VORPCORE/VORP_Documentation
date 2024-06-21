@@ -16,7 +16,7 @@ hero:
     - theme: alt
       text: GitHub
       link: https://github.com/VORPCORE
-    - theme: brand
+    - theme: alt
       text: Docs
       link: /api 
 
