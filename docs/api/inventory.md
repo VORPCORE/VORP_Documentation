@@ -278,6 +278,20 @@ exports.vorp_inventory:setWeaponCustomDesc(weaponId, desc, cb)
 ## Inventory exports
 
 ```lua
+--- add permissions using charids
+---@param charid number 
+---@param state boolean | nil
+exports.vorp_inventory:AddCharIdPermissionTakeFromCustom(id,charid,state)
+```
+
+```lua
+--- add permissions using charids
+---@param charid number 
+---@param state boolean | nil
+exports.vorp_inventory:AddCharIdPermissionMoveToCustom(id,charid,state)
+```
+
+```lua
 ---check if inventory is registered 
 ---@param id string inventory id
 ---@param callback fun(result:boolean)? callback function async or sync leave nil

@@ -494,10 +494,11 @@ state bags is a new feature in vorp core that allows to syncronise data between 
 
 ### Client
   * Listen for this data when you want to know that a payer has choosen a character and is In Session or Job etc
+  
 ```lua
 -- listen to this in your client scripts 
 
-LocalPlayer.state.IsInSession -- returns a boolean if player have choosen a character
+LocalPlayer.state.IsInSession -- returns true if player have choosen a character
 LocalPlayer.state.Character.FirstName 
 LocalPlayer.state.Character.LastName
 LocalPlayer.state.Character.Job 
@@ -509,6 +510,8 @@ LocalPlayer.state.Character.Gender
 LocalPlayer.state.Character.CharDescription
 LocalPlayer.state.Character.Money
 LocalPlayer.state.Character.Gold
+LocalPlayer.state.Character.Rol
+LocalPlayer.state.Character.CharId
 ```
 
 ## Version
