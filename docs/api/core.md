@@ -16,6 +16,8 @@ local VORPcore = exports.vorp_core:GetCore() -- NEW includes  new callback syste
 
 ###  Notifications
 
+- notifications can also accept -1 as duration to always stay on screen and to clear them you need to use [UiFeedClearChannel](https://rdr3natives.github.io/?_0xDD1232B332CBB9E7)
+
 * CLIENT
 
 ```lua
