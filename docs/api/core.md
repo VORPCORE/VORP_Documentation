@@ -424,7 +424,7 @@ end)
 ## Event Listners
 
 
-- player job and group change these events are triggered
+- when player job and group changes these events are triggered
 
 <Badge type="tip" text="SERVER" />
 
@@ -439,6 +439,7 @@ end)
 AddEventHandler("vorp:playerJobGradeChange",function(source, jobgrade)
 end) 
 ```
+- you can also listen for the statebag changes see bellow in the statebags section
 
 <Badge type="tip" text="SHARED" />
 
@@ -514,6 +515,20 @@ LocalPlayer.state.Character.Money
 LocalPlayer.state.Character.Gold
 LocalPlayer.state.Character.Rol
 LocalPlayer.state.Character.CharId
+```
+### State bag change handler
+
+- you can also listen for the state bag change handler to detect new changes
+
+```lua
+AddStateBagChangeHandler("Character", "", function(bagName, key, value, _, replicated)
+    local source = GetPlayerFromStateBagName(bagName)
+    if source == 0 then return end
+    local newJob = value.Job
+    local newGrade = value.JobGrade
+    -- and so on
+end)
+
 ```
 
 ## Version
