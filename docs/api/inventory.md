@@ -323,7 +323,7 @@ exports.vorp_inventory:AddPermissionTakeFromCustom(invId, jobName, jobgrade)
 --- black list items or weapons
 ---@param invId string inventory id
 ---@param item string item name | weapon name
-exports.vorp_inventory:blackListCustomAny(invId, item) 
+exports.vorp_inventory:BlackListCustomAny(invId, item) 
 ```
 ```lua
 --- remove inventory from session
