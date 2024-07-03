@@ -519,6 +519,7 @@ LocalPlayer.state.Character.CharId
 ### State bag change handler
 
 - you can also listen for the state bag change handler to detect new changes
+- bear in mind when you do /addJob for example it will trigger 3 times, because its changing job grade and label
 
 ```lua
 AddStateBagChangeHandler("Character", "", function(bagName, key, value, _, replicated)
