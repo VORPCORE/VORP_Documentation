@@ -4,9 +4,9 @@
 
 [`RedM objects preview`](https://rdr2.mooshe.tv/hashes/)
 
-* offical Natives Website
+* Natives website maintained by vorp team. *not official* there isn't one and most likely there wont be
 
-[`Vespura natives`](https://rdr3natives.github.io/)
+[`Rdr3 natives`](https://rdr3natives.com/)
 
 * RDR3 discoveries  almost everything you need to develop your resources
 
