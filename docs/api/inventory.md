@@ -373,6 +373,19 @@ exports.vorp_inventory:addItemsToCustomInventory(invid, items, charid,callback)
 ---@param callback fun(success: boolean)? async or sync callback
 exports.vorp_inventory:addWeaponsToCustomInventory(invid, weapons, charid,callback)
 ```
+```lua
+---@param invid string
+---@param weaponName string
+---@param callback fun(result:number)? async or sync callback
+exports.vorp_inventory:getAmountWeaponInCustomInventory(invid,weaponName,callback)
+```
+
+```lua
+---@param invid string
+---@param itemName string
+---@param callback fun(result:number)? async or sync callback
+exports.vorp_inventory:getAmountItemInCustomInventory(invid,itemName,callback)
+```
 
 ```lua
 
