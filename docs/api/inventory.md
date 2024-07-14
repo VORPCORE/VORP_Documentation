@@ -1,15 +1,12 @@
 # VORP inventory documentation
-vorp Inventory provide a custom API that allow you to interact with items as well as creating custom inventories.
+extensive documentation to help build your scripts
+
 
 # Exports 
 
 <Badge type="tip" text="Server Side Only" />
 
-*  exports are better to use and faster and we recommend from now on to use them
-*  no need to call exports on the top of your files
-*  just simply call the export when needed
-
-## Items exports
+## Items 
 
 ```lua
 --- check item limit and inv limit in one function
@@ -134,7 +131,7 @@ exports.vorp_inventory:setItemMetadata(source, itemId, metadata, amount, callbac
 ---@return table item data
 exports.vorp_inventory:getItem(source, item,callback, metadata) 
 ```
-## Weapon exports
+## Weapons
 
 ```lua
 --- get all user ammo
@@ -275,7 +272,7 @@ exports.vorp_inventory:setWeaponCustomLabel(weaponId, label, cb)
 exports.vorp_inventory:setWeaponCustomDesc(weaponId, desc, cb)
 ```
 
-## Inventory exports
+## Inventory/customInventory
 
 ```lua
 --- add permissions using charids
@@ -362,6 +359,20 @@ exports.vorp_inventory:openInventory(source, invId)
 ---@param invId string? inventory id
 exports.vorp_inventory:closeInventory(source, invId) 
 ```
+```lua
+---@param invid string inventory id
+---@param items { name: string, amount: number, metadata: table? }[]
+---@param charid number charidentifier of the owner of the storage if custom inv is not shared , if its shared can be any characteridentifer
+---@param callback fun(success: boolean)? async or sync callback
+exports.vorp_inventory:addItemsToCustomInventory(invid, items, charid,callback)
+```
+```lua
+---@param invid string inventory id
+---@param weapons {name: string, custom_label?: string, custom_desc?: string, serial_number?: string}[]
+---@param charid number charidentifier of the owner of the storage if custom inv is not shared , if its shared can be any characteridentifer
+---@param callback fun(success: boolean)? async or sync callback
+exports.vorp_inventory:addWeaponsToCustomInventory(invid, weapons, charid,callback)
+```
 
 ```lua
 
@@ -395,7 +406,7 @@ AddEventHandler("vorp_inventory:Server:OnItemUse",function(data)
 end)
 ```
 
-## Listeners
+## Event Listeners
 
 <Badge type="tip" text="Server Side Only"/>
 
@@ -438,17 +449,6 @@ local serial = data.serialNumber
 local id = data.weaponId
 ```
 
-
-## API DEPRECATED
-
-```lua
---- this fexport got deprecated due to the switch to weight
----@param source integer player id
----@param amount number amount of item
----@param callback fun(canCarry:boolean)? callback function sync or async
----@return boolean
-exports.vorp_inventory:canCarryItems(source, amount, callback) 
-```
 
 
 
