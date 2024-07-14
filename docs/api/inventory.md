@@ -377,6 +377,7 @@ exports.vorp_inventory:addWeaponsToCustomInventory(invid, weapons, charid,callba
 ---@param invid string
 ---@param weaponName string
 ---@param callback fun(result:number)? async or sync callback
+---@return integer
 exports.vorp_inventory:getCustomInventoryWeaponCount(invid,weaponName,callback)
 ```
 
@@ -384,6 +385,7 @@ exports.vorp_inventory:getCustomInventoryWeaponCount(invid,weaponName,callback)
 ---@param invid string
 ---@param itemName string
 ---@param callback fun(result:number)? async or sync callback
+---@return integer
 exports.vorp_inventory:getCustomInventoryItemCount(invid,itemName,callback)
 ```
 
