@@ -428,16 +428,14 @@ end)
 - Listen to when an item is created in player inventory
 
 ```lua
-AddEventHandler("vorp_inventory:Server:OnItemCreated",function(data)
- local source = data.source
+AddEventHandler("vorp_inventory:Server:OnItemCreated",function(data,source)
   print(json.encode(data),{ident = true})
 end)
 ```
 - Listen to when an item is removed from player inventory
 
 ```lua
-AddEventHandler("vorp_inventory:Server:OnItemRemoved",function(data)
- local source = data.source
+AddEventHandler("vorp_inventory:Server:OnItemRemoved",function(data,source)
   print(json.encode(data),{ident = true})
 end)
 ```
