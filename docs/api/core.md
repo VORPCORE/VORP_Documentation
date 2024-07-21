@@ -447,11 +447,11 @@ end)
 
 ```lua
 --CLIENT
-AddEventHandler("vorp_core:Client:OnPlayerDeath",function()
+AddEventHandler("vorp_core:Client:OnPlayerDeath",function(killerserverid)
 end)
 
 --SERVER
-RegisterNetEvent("vorp_core:Server:OnPlayerDeath",function()
+RegisterNetEvent("vorp_core:Server:OnPlayerDeath",function(killerserverid)
 end)
 ```
 -  player is revived through vorp core this event is triggered
