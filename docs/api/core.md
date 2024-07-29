@@ -510,6 +510,7 @@ LocalPlayer.state.Character.Grade
 LocalPlayer.state.Character.Group 
 LocalPlayer.state.Character.Age 
 LocalPlayer.state.Character.Gender
+LocalPlayer.state.Character.NickName
 LocalPlayer.state.Character.CharDescription
 LocalPlayer.state.Character.Money
 LocalPlayer.state.Character.Gold
