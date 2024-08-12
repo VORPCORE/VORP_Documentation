@@ -1,8 +1,11 @@
 ## VORP CORE
 
+- note that player and user classes are cache handled, do not use sql calls to retrieve or set any data use what we provide unless you know what you are doing.
+
+### Get Core
 ```lua
 -- on the top of your client or server files
-local VORPcore = exports.vorp_core:GetCore() -- NEW includes  new callback system
+local VORPcore = exports.vorp_core:GetCore()
 ```
 ### CORE UI
 - SERVER
