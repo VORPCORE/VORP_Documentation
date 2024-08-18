@@ -44,7 +44,7 @@ local placeholder = "Insert player ID" --label
     end)
 ```
 
-### Advanced inputs  `NEW`
+### Advanced inputs 
 
 <Badge type="warning" text="Client Side Only" /> 
 
@@ -74,6 +74,25 @@ TriggerEvent("vorpinputs:advancedInput", json.encode(myInput), function(result)
     end
 end)
 
+```
+- Input Export synchronous 
+
+```lua
+local myInput = {
+    type = "enableinput", -- don't touch
+    inputType = "input", -- input type
+    button = "Confirm", -- button name
+    placeholder = "NAME QUANTITY", -- placeholder name
+    style = "block", -- don't touch
+    attributes = {
+        inputHeader = "GIVE ITEM", -- header
+        type = "text", -- inputype text, number,date,textarea ETC
+        pattern = "[0-9]", --  only numbers "[0-9]" | for letters only "[A-Za-z]+" 
+        title = "numbers only", -- if input doesnt match show this message
+        style = "border-radius: 10px; background-color: ; border:none;"-- style 
+    }
+}
+local result = exports.vorp_inputs:advancedInput(myInput)
 ```
 
 ![image](../public/inputs/inputs.jpg)
