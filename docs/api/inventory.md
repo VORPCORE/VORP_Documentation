@@ -390,6 +390,22 @@ exports.vorp_inventory:getCustomInventoryItemCount(invid,itemName,callback)
 ```
 
 ```lua
+---@param invid string
+---@param itemName string
+---@param callback fun(result:number)? async or sync callback
+---@return boolean
+exports.vorp_inventory:removeItemFromCustomInventory(invid,itemName,callback)
+```
+
+```lua
+---@param invid string
+---@param weaponName string
+---@param callback fun(result:number)? async or sync callback
+---@return boolean
+exports.vorp_inventory:removeWeaponFromCustomInventory(invid,weaponName,callback)
+```
+
+```lua
 
 local data = {
   source = source, 
