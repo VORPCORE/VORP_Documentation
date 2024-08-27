@@ -155,7 +155,7 @@ character.invCapacity
 character.setJob("miner",flag) -- if flag is true then event job changhe wont be triggered
 character.setJobGrade(1,flag)
 character.setJobLabel("Miner")
-character.setGroup("admin",falg)
+character.setGroup("admin",flag)
 character.setRol(1000)
 character.setXp(5000)
 character.setFirstname("Sadie")
