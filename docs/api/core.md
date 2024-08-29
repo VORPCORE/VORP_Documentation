@@ -77,6 +77,7 @@ local maxChars = VORPcore.maxCharacters
 ---@return table | func 
 local user = VORPcore.getUser(source) --[[@as User]]
 ```
+
 ```lua
 ---@param charid number
 ---@return table user data 
@@ -119,8 +120,8 @@ local warnstatus = user.getPlayerwarnings()
 <Badge type="tip" text="Server Side Only" />
 
 ```lua
-local user = VORPcore.getUser(source)
-if not user then return end
+local user = VORPcore.getUser(source) --[[@as User]]  
+if not user then return end -- is player in session?
 local character = user.getUsedCharacter --[[@as Character]]
 ```
 - Getters
@@ -426,22 +427,19 @@ end)
 
 ## Event Listners
 
-
 - when player job and group changes these events are triggered
 
 <Badge type="tip" text="SERVER" />
 
 ```lua
 -- group changed
-AddEventHandler("vorp:playerGroupChange",function(source, group)
-end)
+AddEventHandler("vorp:playerGroupChange",function(source, newgroup,oldgroup) end)
 -- job changed
-AddEventHandler("vorp:playerJobChange", function(source, job) 
-end)
+AddEventHandler("vorp:playerJobChange", function(source, newjob,oldjob) end)
 -- job grade changed
-AddEventHandler("vorp:playerJobGradeChange",function(source, jobgrade)
-end) 
+AddEventHandler("vorp:playerJobGradeChange",function(source, newjobgrade,oldjobgrade) end) 
 ```
+
 - you can also listen for the statebag changes see bellow in the statebags section
 
 <Badge type="tip" text="SHARED" />
@@ -450,35 +448,29 @@ end)
 
 ```lua
 --CLIENT
-AddEventHandler("vorp_core:Client:OnPlayerDeath",function(killerserverid,causeofdeath)
-end)
+AddEventHandler("vorp_core:Client:OnPlayerDeath",function(killerserverid,causeofdeath) end)
 
 --SERVER
-RegisterNetEvent("vorp_core:Server:OnPlayerDeath",function(killerserverid,causeofdeath)
-end)
+RegisterNetEvent("vorp_core:Server:OnPlayerDeath",function(killerserverid,causeofdeath) end)
 ```
 -  player is revived through vorp core this event is triggered
 
 ```lua
 --CLIENT
-AddEventHandler("vorp_core:Client:OnPlayerRevive",function()
-end)
+AddEventHandler("vorp_core:Client:OnPlayerRevive",function() end)
 
 --SERVER
-RegisterNetEvent("vorp_core:Server:OnPlayerRevive",function()
-end)
+RegisterNetEvent("vorp_core:Server:OnPlayerRevive",function() end)
 
 ```
 - player respawns through vorp core this event is triggered
 
 ```lua
 --CLIENT
-AddEventHandler("vorp:PlayerForceRespawn",function()
-end)
+AddEventHandler("vorp:PlayerForceRespawn",function() end)
 
 --SERVER
-RegisterNetEvent("vorp:PlayerForceRespawn",function()
-end)
+RegisterNetEvent("vorp:PlayerForceRespawn",function() end)
 
 ```
 
