@@ -455,8 +455,7 @@ AddEventHandler("vorp_inventory:Server:OnItemRemoved",function(data,source)
   print(json.encode(data),{ident = true})
 end)
 ```
-- Listen for inventory opens or closes including custom inventories
-
+- Listen for inventory state hcnage (opens or closes) including custom inventories
 ```lua
 AddEventHandler("vorp_inventory:Client:OnInvStateChange",function(boolean) end)
 ```
@@ -483,9 +482,9 @@ local serial = data.serialNumber
 local id = data.weaponId
 ```
 
-- Inventory open or closed including custom inventories
+- check if inventory is active (open or closed) including custom inventories
 ```lua
-LocalPlayer.state.IsInvOpen
+LocalPlayer.state.IsInvActive
 ```
 
 
