@@ -148,7 +148,8 @@ character.age
 character.gender
 character.charDescription
 character.nickname
-character.invCapacity
+character.invCapacity 
+character.skills ---@type table
 ```
 - Setters
 
@@ -173,6 +174,7 @@ character.setCharDescription("string")
 character.setNickName("string")
 character.setGender("string")
 character.updateInvCapacity(1) -- 35 + 1 or  35 - 1 its incremental 
+character.setSkills("skillName",10) -- skillanme exp
 ```
 
 ### Instance routing buckets
