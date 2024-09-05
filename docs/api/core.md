@@ -482,7 +482,7 @@ RegisterNetEvent("vorp:PlayerForceRespawn")
 RegisterNetEvent("vorp_core:Client:OnPlayerHeal")
 
 --server
-AddEventHandler("vorp_core:Server:OnPlayerHeal")
+AddEventHandler("vorp_core:Server:OnPlayerHeal",function(source) end)
 ```
 
 ## Data View
