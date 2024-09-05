@@ -459,21 +459,29 @@ RegisterNetEvent("vorp_core:Server:OnPlayerDeath",function(killerserverid,causeo
 
 ```lua
 --CLIENT
-AddEventHandler("vorp_core:Client:OnPlayerRevive",function() end)
+AddEventHandler("vorp_core:Client:OnPlayerRevive")
 
 --SERVER
-RegisterNetEvent("vorp_core:Server:OnPlayerRevive",function() end)
+RegisterNetEvent("vorp_core:Server:OnPlayerRevive")
 
 ```
 - player respawns through vorp core this event is triggered
 
 ```lua
 --CLIENT
-AddEventHandler("vorp:PlayerForceRespawn",function() end)
+AddEventHandler("vorp:PlayerForceRespawn")
 
 --SERVER
-RegisterNetEvent("vorp:PlayerForceRespawn",function() end)
+RegisterNetEvent("vorp:PlayerForceRespawn")
 
+```
+- player is healed through vorp core this event will trigger
+
+```lua
+--client
+AddEventHandler("vorp_core:Client:OnPlayerHeal")
+--server
+RegisterNetEvent("vorp_core:Server:OnPlayerHeal")
 ```
 
 ## Data View
