@@ -218,7 +218,6 @@ VORPcore.Whitelist.whitelistUser(identifier)
  VORPcore.Whitelist.unWhitelistUser(identifier)
 ```
 
-
 ### AUTO DB updater 
 
 <Badge type="tip" text="Server Side Only" />
@@ -331,6 +330,27 @@ end)
 ---@param avatar? string link  
 VORPcore.AddWebhook(title, webhook, description, color, name, logo, footerlogo, avatar)
 
+```
+
+### Player
+- Available through core export when using thse you will benefit of the events listeners
+
+<Badge type="tip" text="Server Side Only" /> 
+
+- Heal player
+
+```lua
+Core.Player.Heal(source)
+```
+- Revive Player
+
+```lua
+Core.Player.Revive(source)
+```
+- Respawn player
+
+```lua
+Core.Player.Respawn(source)
 ```
 
 ## RPC Callbacks
