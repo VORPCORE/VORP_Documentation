@@ -475,13 +475,14 @@ AddEventHandler("vorp:PlayerForceRespawn")
 RegisterNetEvent("vorp:PlayerForceRespawn")
 
 ```
-- player is healed through vorp core this event will trigger
+- player is healed through vorp core export (not events) this event will trigger
 
 ```lua
 --client
-AddEventHandler("vorp_core:Client:OnPlayerHeal")
+RegisterNetEvent("vorp_core:Client:OnPlayerHeal")
+
 --server
-RegisterNetEvent("vorp_core:Server:OnPlayerHeal")
+AddEventHandler("vorp_core:Server:OnPlayerHeal")
 ```
 
 ## Data View
