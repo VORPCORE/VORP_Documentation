@@ -95,7 +95,7 @@ exports.vorp_inventory:addItem(source, item, amount, metadata,callback)
 exports.vorp_inventory:getItemByMainId(source, mainid, callback) 
 ```
 ```lua
---- sun item by item id
+--- Remove item from inventory by item id
 ---@param source integer player id
 ---@param id number item id
 ---@param callback fun(boolean:boolean)? callback function sync or async
@@ -103,7 +103,7 @@ exports.vorp_inventory:getItemByMainId(source, mainid, callback)
 exports.vorp_inventory:subItemID(source, id, callback) 
 ```
 ```lua
---- sub item
+--- Remove item from inventory
 ---@param source integer player id
 ---@param item string item name
 ---@param amount number amount of item
